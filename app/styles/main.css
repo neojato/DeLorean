@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.gdg_loading {
+    background: url('../images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
+    width: 64px;
+    height: 64px;
+}
+
+.facebook-link a {
+  color: #777;
+}
+
+.facebook-link a:hover {
+    color: #3b5998;
+}
+
+.github-link a {
+  color: #777;
+}
+
+.github-link a:hover {
+    color: #000;
+}
+
+.twitter-link a {
+  color: #777;
+}
+
+.twitter-link a:hover {
+    color: #39a9e0;
+}
+
+.google-plus-link a {
+  color: #777;
+}
+
+.google-plus-link a:hover {
+    color: #d14836;
+}
+
+.social-links li{
+  margin: 0 8px 16px 0;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.gray-bg {
+	background: #f7f8f9;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 20px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  font-size: 12px;
+}
+
+.footer .attribution a {
+  color: #777;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

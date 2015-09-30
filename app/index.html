@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <base href="#!/">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>GDG DevFest 2015</title>
+  <meta name="description" content="GDG DevFests are large, community-run events that can offer speaker sessions across multiple product areas, all-day hack-a-thons, code labs, and more. While no two events will be exactly alike, each GDG DevFest will be powered by a shared belief that when developers come together to exchange ideas amazing things can happen.">
+  <meta name="application-name" content="GDG DevFest">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" sizes="16x16 32x32" href="favicon.ico">
+  <!-- social: Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GDGKansasCity">
+  <meta name="twitter:title" content="GDG DevFest KC 2015 &bull; December 5th">
+  <meta name="twitter:description" content="The largest local Google tech conference crafted for you by your local GDG community! All about Android, Web, and Cloud from local & world experts!">
+  <meta name="twitter:image:src" content="http://devfest.gdgkc.org/images/devfest.png">
+  <!-- social: Facebook / Open Graph -->
+  <meta property="og:title" content="GDG DevFest KC 2015 &bull; December 5th">
+  <meta property="og:site_name" content="GDG DevFest KC 2015 &bull; December 5th">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://devfest.gdgkc.org/">
+  <meta property="og:image" content="http://devfest.gdgkc.org/images/devfest.png">
+  <meta property="og:description" content="The largest local Google tech conference crafted for you by your local GDG community! All about Android, Web, and Cloud from local & world experts!">
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="devfestApp">
+  <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div ng-include="'templates/header.html'"></div>
+  <div ng-view=""></div>
+  <div ng-include="'templates/footer.html'"></div>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<!--
+  <script>
+    !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+    (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+    }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+-->
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/routes.js"></script>
+  <!-- angularfire -->
+  <script src="scripts/angularfire/auth.js"></script>
+  <script src="scripts/angularfire/config.js"></script>
+  <script src="scripts/angularfire/firebase.ref.js"></script>
+  <!-- directives -->
+  <script src="scripts/directives/ngShowAuth.js"></script>
+  <script src="scripts/directives/ngHideAuth.js"></script>
+  <script src="scripts/directives/modal.js"></script>
+  <!-- filters -->
+  <script src="scripts/filters/reverse.js"></script>
+  <!-- services -->
+  <script src="scripts/services/sessions.js"></script>
+  <!-- controllers -->
+  <script src="scripts/controllers/header.js"></script>
+  <script src="scripts/controllers/footer.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/chat.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/controllers/account.js"></script>
+  <script src="scripts/controllers/schedule.js"></script>
+  <script src="scripts/controllers/speakers.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <!-- endbuild -->
+  <!-- needed for +1 & Organizer blocks to work -->
+  <script type="text/javascript">
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'explicit'
+    };
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+</body>
+</html>

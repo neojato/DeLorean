@@ -1,0 +1,181 @@
+
+<section id="schedule" class="gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
+          <p class="section-title">Session Schedule</p>
+          <h2 class="section-heading">
+            <!-- Add sessions (Auth required) -->
+            <a ng-show-auth="" class="btn btn-sm btn-success" ng-click="toggleModal()">Add Session</a>
+          </h2>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="section-tab schedule-tab" role="tabpanel">
+        <ul class="nav nav-tabs centered" role="tablist">
+          <li role="presentation" ng-class="{active: isTab(1)}">
+            <a href ng-click="setTab(1)" aria-controls="one" role="tab" data-toggle="tab">
+              Mobile / Android<span class="track-type">Track One</span>
+            </a>
+          </li>
+          <li role="presentation" ng-class="{active: isTab(2)}">
+            <a href ng-click="setTab(2)" aria-controls="two" role="tab" data-toggle="tab">
+              Cloud / Web<span class="track-type">Track Two</span>
+            </a>
+          </li>
+          <li role="presentation" ng-class="{active: isTab(3)}">
+            <a href ng-click="setTab(3)" aria-controls="three" role="tab" data-toggle="tab">
+              Workshops<span class="track-type">Track Three</span>
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true">
+            <div class="session-wrapper">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 pull-left no-padding">
+                  <div class="session-meta">
+                    <div class="session-meta-thumbnail">
+                      <div class="color-overlay"></div>
+                      <img src="images/venue.jpg" alt="Venue" />
+                    </div>
+                    <div class="session-meta-info">
+                      <div class="session-info-time">
+                        <span class="fa fa-clock-o"></span> {{session.time}}
+                      </div>
+                      <div class="session-info-place">
+                        <span class="fa fa-university"></span> {{session.room}}
+                      </div>
+                      <div style="padding-top: 25px;">
+                        <!-- Edit/Delete a session (Auth required) -->
+                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
+                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-8 no-padding">
+                  <div class="session-description">
+                    <h4 class="session-title">{{session.title}}</h4>
+                    <p>{{session.description}}</p>
+                    <div class="session-speaker">
+                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(2)" ng-repeat="session in sessions | filter:{track: '2'}:true">
+            <div class="session-wrapper">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 pull-left no-padding">
+                  <div class="session-meta">
+                    <div class="session-meta-thumbnail">
+                      <div class="color-overlay"></div>
+                      <img src="images/venue.jpg" alt="Venue" />
+                    </div>
+                    <div class="session-meta-info">
+                      <div class="session-info-time">
+                        <span class="fa fa-clock-o"></span> {{session.time}}
+                      </div>
+                      <div class="session-info-place">
+                        <span class="fa fa-university"></span> {{session.room}}
+                      </div>
+                      <div style="padding-top: 25px;">
+                        <!-- Edit/Delete a session (Auth required) -->
+                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
+                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-8 no-padding">
+                  <div class="session-description">
+                    <h4 class="session-title">{{session.title}}</h4>
+                    <p>{{session.description}}</p>
+                    <div class="session-speaker">
+                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(3)" ng-repeat="session in sessions | filter:{track: '3'}:true">
+            <div class="session-wrapper">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 pull-left no-padding">
+                  <div class="session-meta">
+                    <div class="session-meta-thumbnail">
+                      <div class="color-overlay"></div>
+                      <img src="images/venue.jpg" alt="Venue" />
+                    </div>
+                    <div class="session-meta-info">
+                      <div class="session-info-time">
+                        <span class="fa fa-clock-o"></span> {{session.time}}
+                      </div>
+                      <div class="session-info-place">
+                        <span class="fa fa-university"></span> {{session.room}}
+                      </div>
+                      <div style="padding-top: 25px;">
+                        <!-- Edit/Delete a session (Auth required) -->
+                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
+                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-8 no-padding">
+                  <div class="session-description">
+                    <h4 class="session-title">{{session.title}}</h4>
+                    <p>{{session.description}}</p>
+                    <div class="session-speaker">
+                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add/Edit Session -->
+  <modal title="Session Form" visible="showModal">
+    <form role="form" ng-submit="saveSession()">
+      <input type="hidden" ng-model="id" />
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" class="form-control" ng-model="session.title" placeholder="Session Title" />
+      </div>
+      <div class="form-group">
+        <label for="room">Room:</label>
+        <input type="text" id="room" class="form-control" ng-model="session.room" placeholder="Ballroom A" />
+      </div>
+      <div class="form-group">
+        <label for="time">Time:</label>
+        <input type="text" id="time" class="form-control" ng-model="session.time" placeholder="9:00 am" />
+      </div>
+      <div class="form-group">
+        <label for="speaker">Speaker:</label>
+        <input type="text" id="speaker" class="form-control" ng-model="session.speaker" placeholder="Full Name" />
+      </div>
+      <div class="form-group">
+        <label for="track">Track #:</label>
+        <select class="form-control" id="track" ng-model="session.track">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" class="form-control" ng-model="session.description" placeholder="Enter a description"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Save</button>
+    </form>
+  </modal>
+</section>

@@ -1,0 +1,25 @@
+<main id="main-content" class="event-layout layout-with-navbar" style="margin-bottom: 234px;">
+  <section id="hero">
+    <div class="container">
+      <div class="vertical-center-wrapper">
+        <div class="vertical-center-table">
+          <div class="vertical-center-content">
+            <div class="hero-content row">
+              <div class="col-lg-10">
+                <h3 class="all-caps text-shadow-meduim">{{ config.eventName }} 2015</h3>
+                <div class="event-hero-info text-shadow-small">
+                  <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventDate | date:'longDate' }}</small>
+                  <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventLocation }}</small>
+                </div>
+                <div>
+                  <a ng-href="{{ config.speakerURL }}" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
+                  <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

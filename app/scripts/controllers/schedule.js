@@ -8,8 +8,8 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-.controller('ScheduleCtrl', function ($scope, SessionsService) {
-  $scope.sessions = SessionsService;
+.controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray) {
+  $scope.sessions = $firebaseArray(Ref.child('sessions'));
   $scope.showModal = false;
   $scope.tab = 1;
   $scope.session = {

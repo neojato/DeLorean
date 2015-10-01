@@ -22,13 +22,14 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <div class="col-lg-8 col-lg-offset-2 centered" style="background-color: #fff; padding: 45px;">
+      <div class="col-lg-12 col-md-12" style="background-color: #fff; padding: 0 45px;">
         <div class="gdg_loading" ng-show="loading"></div>
-        <ul id="news-feed" style="width:345px !important;">
-          <li ng-repeat="person in organizers">
-            <div class="g-person" data-width="286" data-href="{{ person.link }}" data-layout="landscape" data-rel="author"></div>
-          </li>
-        </ul>
+        <div ng-repeat="person in organizers">
+          <div style="padding: 45px; float: left;">
+            <div class="g-person" data-width="220" data-href="{{ person.link }}" data-showtagline="false" data-showcoverphoto="false" data-rel="author"></div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>

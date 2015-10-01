@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-.controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray) {
+.controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout) {
   $scope.sessions = $firebaseArray(Ref.child('sessions'));
   $scope.showModal = false;
   $scope.tab = 1;
@@ -47,7 +47,7 @@ angular.module('devfestApp')
   };
   
   $scope.saveSession = function() {
-    if ($scope.session.id != null) {
+    if ($scope.session.id !== null) {
       delete $scope.session.id;
       $scope.sessions.$save($scope.session);
       $scope.toggleModal();

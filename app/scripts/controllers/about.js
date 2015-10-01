@@ -12,7 +12,7 @@ angular.module('devfestApp')
     $scope.loading = true;
     
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-          '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount%2Curls&key=' + Config.google_api)
+          '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount%2Curls&key=' + Config.googleAPI)
       .success(function (data) {
         $scope.desc = data.aboutMe;
         $sce.trustAsHtml($scope.desc);

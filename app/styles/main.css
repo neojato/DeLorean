@@ -125,6 +125,34 @@ body {
   margin-top: 28px;
 }
 
+/* Sponsorship benefits content */
+.sponsor table {
+  margin: auto;
+  margin-bottom: 50px;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.sponsor tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.sponsor th, .sponsor td {
+  text-align: left;
+  border-bottom: 2px solid black;
+  padding-bottom: 7px;
+  padding-top: 5px;
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.sponsor th {
+  font-weight: bold;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

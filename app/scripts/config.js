@@ -7,6 +7,7 @@ angular.module('devfestApp')
       
       // group/site config
       'name'          : 'GDG Kansas City', // the name of your GDG
+      'location'      : 'Kansas City metro', // city location of GDG
       'email'         : 'gdgkansascity@gmail.com', // the email where you receive GDG emails
       'id'            : '116015988631052616691', // Google+ profile id for the GDG
       'googleAPI'     : 'AIzaSyB3g3Fr3M56bILSK2aqn6arqU1CQt1zb3E', // Google API Key
@@ -19,7 +20,8 @@ angular.module('devfestApp')
       'eventAddress'  : '520 Minnesota Ave, Kansas City, KS 66101', // address of event
       'eventURL'      : 'http://devfest.gdgkc.org', // link to event website (ex. G+, Meetup, Eventbrite, etc)
       'eventEmail'    : 'devfest@gdgkc.org', // Email where event inquries should go
-      'speakerURL'    : 'https://goo.gl/rEypu0', // URL for the 'Call for Papers' form
+      'speakerURL'    : 'https://goo.gl/rEypu0', // link to the 'Call for Papers' form
+      'sponsorURL'    : 'https://goo.gl/n4KoLu', // link to the sponsorship form
       'ticketURL'     : '', // link to buy tickets
       'eventDate'     : '2015-12-05', // ISO formatted YYYY-MM-DD (currently only supports a single day DevFest)
       'eventStart'    : '09:00:00', // start time

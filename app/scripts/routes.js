@@ -71,6 +71,10 @@ angular.module('devfestApp')
         templateUrl: 'views/speakers.html',
         controller: 'SpeakersCtrl'
       })
+      .when('/sponsorship', {
+        templateUrl: 'views/sponsorship.html',
+        controller: 'SponsorshipCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'

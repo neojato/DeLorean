@@ -14,7 +14,6 @@ angular.module('devfestApp')
     var profile = $firebaseObject(Ref.child('users/'+user.uid));
     profile.$bindTo($scope, 'profile');
     
-
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
       if( !oldPass || !newPass ) {
@@ -57,5 +56,4 @@ angular.module('devfestApp')
         $scope.messages.splice($scope.messages.indexOf(obj), 1);
       }, 10000);
     }
-
   });

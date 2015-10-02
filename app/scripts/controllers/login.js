@@ -61,9 +61,7 @@ angular.module('devfestApp')
       var f = str.charAt(0).toUpperCase();
       return f + str.substr(1);
     }
-
   
-
     function redirect() {
       $location.path('/account');
     }
@@ -71,6 +69,4 @@ angular.module('devfestApp')
     function showError(err) {
       $scope.err = err;
     }
-
-
   });

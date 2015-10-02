@@ -9,14 +9,14 @@
  * Main module of the application.
  */
 angular.module('devfestApp', [
-  'ngAnimate',
-  'ngCookies',
-  'ngResource',
-  'ngRoute',
-  'ngSanitize',
-  'ngTouch',
-  'firebase',
-  'firebase.ref',
-  'firebase.auth',
-  'ngMap'
-]);
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'firebase',
+    'firebase.ref',
+    'firebase.auth',
+    'ngMap'
+  ]);

@@ -5,14 +5,14 @@
         <div class="vertical-center-content">
           <div class="hero-content row">
             <div class="col-lg-10">
-              <h3 class="all-caps text-shadow-meduim">{{ config.eventName }} 2015</h3>
+              <h3 class="all-caps text-shadow-meduim">{{ site.eventName }} 2015</h3>
               <div class="event-hero-info text-shadow-small">
-                <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventDate | date:'longDate' }}</small><br />
-                <small><span class="event-hero-icon fa fa-university"></span>{{ config.eventLocation }}</small>
+                <small><span class="event-hero-icon fa fa-calendar"></span>{{ site.eventDate | date:'longDate' }}</small><br />
+                <small><span class="event-hero-icon fa fa-university"></span>{{ site.eventLocation }}</small>
               </div>
               <div>
-                <a ng-href="{{ config.speakerURL }}" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
-                <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
+                <a ng-href="{{ site.speakerURL }}" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
+                <a ng-href="{{ site.ticketURL }}" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
               </div>
             </div>
           </div>
@@ -26,13 +26,13 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
         <p class="section-title">About GDG DevFest</p>
-        <h2 class="section-heading">1&nbsp;Day, {{ config.sessionTracks }}&nbsp;Tracks, 12+&nbsp;Speakers, A&nbsp;lot&nbsp;of&nbsp;Attendees</h2>
+        <h2 class="section-heading">1&nbsp;Day, {{ site.sessionTracks }}&nbsp;Tracks, 12+&nbsp;Speakers, A&nbsp;lot&nbsp;of&nbsp;Attendees</h2>
       </div>
       <div class="clearfix"></div>
       <div class="col-lg-10 col-lg-offset-1">
         <p><strong>GDG DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together to exchange ideas, amazing things can happen!</p>
       </div>
-      <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Get Your Ticket</a>
+      <a ng-href="{{ site.ticketURL }}" target="_blank" class="cta cta-default all-caps">Get Your Ticket</a>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -44,12 +44,12 @@
       <info-window id="eventDetail" visible-on-marker="eventSpace">
         <div>
           <div id="siteNotice"></div>
-          <h4 id="infoHeading"><strong>{{ config.eventName }} Location</strong></h4>
+          <h4 id="infoHeading"><strong>{{ site.eventName }} Location</strong></h4>
           <div id="infoBody">
             <p>
-              {{ config.eventLocation }}<br />
-              {{ config.eventAddress }}<br />
-              {{ config.eventDate | date:'longDate' }}<br />
+              {{ site.eventLocation }}<br />
+              {{ site.eventAddress }}<br />
+              {{ site.eventDate | date:'longDate' }}<br />
               {{ eventStart | date:'shortTime' }} - {{ eventEnd | date:'shortTime' }}
             </p>
           </div>
@@ -58,6 +58,6 @@
     </map>
   </div>
 </section>
-<section id="sponsors">
+<section id="partners" class="centered">
 
 </section>

@@ -9,7 +9,7 @@
  */
 angular.module('devfestApp')
   .controller('MainCtrl', function ($scope, $http, Config) {
-    $scope.config = Config;
+    $scope.site = Config;
     $scope.gMapLazy = 'https://maps.google.com/maps/api/js';
     $scope.gMapURL = 'https://maps.google.com/maps/api/js?client=' + Config.googleAPI;
 

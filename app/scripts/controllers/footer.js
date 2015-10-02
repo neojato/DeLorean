@@ -9,7 +9,7 @@
  */
 angular.module('devfestApp')
   .controller('FooterCtrl', function ($scope, $window, $timeout, Config) {
-    $scope.config = Config;
+    $scope.site = Config;
     
     $scope.socialLink = function(network) {
       var link = '';

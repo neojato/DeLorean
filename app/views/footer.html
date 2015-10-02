@@ -10,7 +10,7 @@
       <div class="col-md-4 col-xs-6">
         <h5>Links</h5>
         <ul>
-          <li><a ng-href="{{ config.website }}" target="_blank">{{ config.name }}</a></li>
+          <li><a ng-href="{{ site.website }}" target="_blank">{{ site.name }}</a></li>
           <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
           <li><a ng-hide-auth="" href="#!/login">GDG Log In</a></li>
           <li><a ng-show-auth="" href="#!/account">GDG Account</a></li>
@@ -19,8 +19,8 @@
       <div class="col-md-4 col-xs-6">
         <h5>Contact</h5>
         <ul>
-          <li ng-if="config.eventEmail.length > 0"><a ng-href="{{ 'mailto:' + config.eventEmail }}" target="_blank">{{ config.eventEmail }}</a></li>
-          <li ng-if="config.twitter.length > 0"><a ng-href="{{ 'http://twitter.com/home?status=@' + config.twitter }}" target="_blank">@{{ config.twitter }}</a></li>
+          <li ng-if="site.eventEmail.length > 0"><a ng-href="{{ 'mailto:' + site.eventEmail }}" target="_blank">{{ site.eventEmail }}</a></li>
+          <li ng-if="site.twitter.length > 0"><a ng-href="{{ 'http://twitter.com/home?status=@' + site.twitter }}" target="_blank">@{{ site.twitter }}</a></li>
         </ul>
       </div> 
       <div class="col-md-4 col-xs-6">
@@ -34,17 +34,17 @@
     <div class="row">
       <div class="col-md-6 col-xs-12">
         <ul class="social-links">
-          <li ng-if="config.id.length > 0" class="fa fa-google-plus-square" ng-click="socialLink('google_plus')"style="cursor: pointer;"></li>
-          <li ng-if="config.facebook.length > 0" class="fa fa-facebook-official" ng-click="socialLink('facebook')"style="cursor: pointer;"></li>
-          <li ng-if="config.twitter.length > 0" class="fa fa-twitter-square" ng-click="socialLink('twitter')"style="cursor: pointer;"></li>
-          <li ng-if="config.github.length > 0" class="fa fa-github-square" ng-click="socialLink('github')"style="cursor: pointer;"></li>
+          <li ng-if="site.id.length > 0" class="fa fa-google-plus-square" ng-click="socialLink('google_plus')"style="cursor: pointer;"></li>
+          <li ng-if="site.facebook.length > 0" class="fa fa-facebook-official" ng-click="socialLink('facebook')"style="cursor: pointer;"></li>
+          <li ng-if="site.twitter.length > 0" class="fa fa-twitter-square" ng-click="socialLink('twitter')"style="cursor: pointer;"></li>
+          <li ng-if="site.github.length > 0" class="fa fa-github-square" ng-click="socialLink('github')"style="cursor: pointer;"></li>
         </ul>
       </div>
     </div>
     <div class="row">
       <!-- *** Please don't delete this line *** -->
       <div class="col-md-6 col-xs-12 attribution">
-        © 2015 {{ config.name }}<br />
+        © 2015 {{ site.name }}<br />
         Designed and created by <a href="https://plus.google.com/+KylePaul" target="_blank">Kyle Paul</a> · <a href="http://gdgkc.org" target="_blank">GDG Kansas City</a>
       </div>
     </div>

@@ -17,11 +17,9 @@
 
     <p>
       <button class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
-<!--
-      <button class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
+      <button class="btn btn-default" ng-if="allowRegister" ng-click="createMode = true" ng-hide="createMode">Register</button>
       <button class="btn btn-primary" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)">Create Account</button>
       <button class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
--->
     </p>
   </form>
   <p ng-show="err" class="bg-danger">{{err}}</p>

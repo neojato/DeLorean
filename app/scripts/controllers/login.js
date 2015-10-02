@@ -7,7 +7,9 @@
  * Manages authentication to any active providers.
  */
 angular.module('devfestApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Config) {
+    $scope.allowRegister = Config.allowRegister;
+    
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(

@@ -79,6 +79,18 @@ body {
   padding-bottom: 19px;
 }
 
+#hero {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	height: 100vh;
+	color: #fff;
+	background-size: cover !important;
+	background: url(../images/background.jpg) center center no-repeat;
+	background-attachment: fixed !important;
+	background-position: center top;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 20px;

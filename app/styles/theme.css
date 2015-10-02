@@ -1,94 +1,3 @@
-/*
-	Template Name: Urip Landing Page
-	Template URI: http://worksofwisnu.com/theme-preview/urip
-	Description: Modern and Professional HTML Landing Page Template
-	Author: xWisnux (Works of Wisnu)
-	Author URI: http://worksofwisnu.com
-	Version: 2.0
-
-*/
-
-/**
- * Table of Contents:
- *
- * 1.0 - BASIC STRUCTURE
- *	 1.1 - Typography
- *	 1.2 - Custom Column
- *	 1.3 - Custom Margin
- *	 1.4 - Vertical Center Content
- *
- * 2.0 - COMPONENTS
- *	 2.1 - Buttons
- *	 2.2 - Lists
- *	 2.3 - Content Tab
- *	 2.4 - Section Tab
- *	 2.5 - Toggle
- *	 2.6 - Pricing Table
- *	 2.7 - Contact Modal
- *	 2.8 - Alert Notification
- *	 2.9 - Lightbox Modal
- *	 2.10 - Attention Box
- *	 2.11 - Progress Bar
- *	 2.12 - To Top Button
- *
- * 3.0 - HEADER & HERO SECTION
- *	 3.1 - Menu Toggle
- *	 3.2 - Navigation
- *     3.2.1 - Navigation Bar
- *	 3.3 - Hero Background
- *	 3.4 - Hero Subscribe Form
- *	 3.5 - Hero Form
- *	 3.6 - Creative Layouts Hero CTA Content
- *	 3.7 - Hero App Layout
- *	 3.8 - Animated Headline
- *	 3.9 - Hero Event Layout
- *	 3.10 - Video Background
- *
- * 4.0 - TOP CLIENT LOGO
- *
- * 5.0 - WHAT WE DO SECTION
- *	 5.1 - What We Do on Form Layout
- *	 5.2 - Introduction on App Layout
- *   5.3 - Introduction on Event Layout
- *
- * 6.0 - HOW IT WORKS SECTION
- *	 6.1 - How It Works info hover transitions/animations
- * 	 6.2 - How It Works hover background
- *
- * 7.0 - OUR FEATURES SECTI0N
- * 	 7.1 - Feature Icon on Hero Form Layout
- * 	 7.2 - The Feature on App Layout
- *
- * 8.0 - FEATURETTES SECTION
- *	 8.1 - Featurettes Quote
- *
- * 9.0 - COUNTER
- *
- * 10.0 - BREAKOUT
- *	 10.1 - App Layout Breakout
- *	 10.2 - Event Layout Breakout
- *
- * 11.0 - PRICING & SECTION TABS
- * 	 11.1 - Why Us Section on App Layout
- *	 11.2 - Event Session
- *
- * 12.0 - OUR TEAM SECTION
- *	 12.1 - App Layout Carousel
- *
- * 13.0 - CUSTOMER STORIES/LOGOS SECTION
- *	 13.1 - App Layout Customer Quote
- *
- * 14.0 - PORTFOLIO SECTION
- *	 14.1 - Portfolio External Link
- *
- * 15.0 - FOOTER SUBSCRIBE
- *
- * 16.0 - MAIN FOOTER SECTION
- * 	 16.1 - App Layout Footer
- * -----------------------------------------------------------------------------
- */
-
-
 /**
  * 1.0 BASIC STRUCTURE
  * -----------------------------------------------------------------------------
@@ -122,9 +31,6 @@ hr {
 	border-top: 1px solid #ccc;
 }
 
-.gray-bg {
-	background: #f7f8f9;
-}
 
 ul {
 	padding-left: 0;
@@ -1734,59 +1640,7 @@ a.menu-toggle span {
 }
 /* -- */
 
-/* 3.2.1 Navigation Bar */
-.navbar-nav>li {
-	margin-left: 5px;
-}
-
-.navbar-nav>li>a {
-	color: #fff;
-	font-size: 14px;
-	font-family: "Montserrat", sans-serif;
-}
-
-.header-clone .navbar-nav>li>a:hover,
-.header-clone .navbar-nav>li.current>a {
-	color: #19a9e5;
-}
-
-.navbar-header a.logo {
-	margin-top: -20px;
-	padding: 7px 0;
-}
-
-.header-clone .container-fluid>.navbar-collapse,
-.header-clone .container-fluid>.navbar-header,
-.header-clone .container>.navbar-collapse,
-.header-clone .container>.navbar-header {
-	margin-top: 3px;
-}
-
-.header-clone .navbar-header .logo img {
-	top: 12px;
-}
-
-.navbar-toggle {
-	margin: 0;
-	padding: 0;
-	margin-top: -2px;
-}
-
-.navbar-toggle span {
-	color: #fff;
-	font-size: 24px;
-}
-
 /* -- */
-#hero {
-	position: relative;
-	overflow: hidden;
-	padding: 0;
-	height: 100vh;
-	color: #fff;
-	background-size: cover !important;
-}
-
 .color-overlay {
 	background: rgba(34, 34, 34, 0.5);
 }

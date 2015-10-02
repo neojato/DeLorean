@@ -6,7 +6,7 @@ api_version: 1
 
 handlers:
 - url: /favicon\.ico
-  static_files: favicon.ico
+  static_files: app\favicon.ico
   upload: favicon\.ico
 
 - url: (.*)/

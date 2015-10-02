@@ -19,7 +19,7 @@ angular.module('devfestApp')
       'eventAddress'  : '520 Minnesota Ave, Kansas City, KS 66101', // address of event
       'eventURL'      : 'http://devfest.gdgkc.org', // link to event website (ex. G+, Meetup, Eventbrite, etc)
       'eventEmail'    : 'devfest@gdgkc.org', // Email where event inquries should go
-      'speakerURL'    : 'https://docs.google.com/forms/d/1cf_qfEmEE7GeAVltMjZbMuQtopdavqdMfPhb0z2dJJg/viewform', // URL for the 'Call for Papers' form
+      'speakerURL'    : 'https://goo.gl/rEypu0', // URL for the 'Call for Papers' form
       'ticketURL'     : '', // link to buy tickets
       'eventDate'     : '2015-12-05', // ISO formatted YYYY-MM-DD (currently only supports a single day DevFest)
       'eventStart'    : '09:00:00', // start time

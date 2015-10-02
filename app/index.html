@@ -109,8 +109,11 @@
     };
     (function() {
       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
+      po.src = 'https://apis.google.com/js/platform.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      var pb = document.createElement('script'); pb.type = 'text/javascript'; pb.async = true;
+      pb.src = 'https://apis.google.com/js/plusone.js';
+      var sb = document.getElementsByTagName('script')[0]; sb.parentNode.insertBefore(pb, sb);
     })();
   </script>
 </body>

@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('FooterCtrl', function ($scope, $window, Config) {
+  .controller('FooterCtrl', function ($scope, $window, $timeout, Config) {
     $scope.config = Config;
     
     $scope.socialLink = function(network) {
@@ -35,4 +35,8 @@ angular.module('devfestApp')
       $window.open(link, '_blank');
       return false;
     };
+    
+    $timeout(function() {
+      gapi.plusone.go();
+    }, 1000);
   });

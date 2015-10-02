@@ -1,27 +1,36 @@
-<div class="container">
-  <h2>Login Page</h2>
-
-  <form role="form">
-    <p class="form-group">
-      <label for="loginEmail">email</label>
-      <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
-    </p>
-    <p class="form-group">
-      <label for="loginPass">password</label>
-      <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
-    </p>
-    <p class="form-group" ng-cloak ng-show="createMode">
-      <label for="loginConfirm">confirm pass</label>
-      <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
-    </p>
-
-    <p>
-      <button class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
-      <button class="btn btn-default" ng-if="allowRegister" ng-click="createMode = true" ng-hide="createMode">Register</button>
-      <button class="btn btn-primary" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)">Create Account</button>
-      <button class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
-    </p>
-  </form>
-  <p ng-show="err" class="bg-danger">{{err}}</p>
-</div>
-
+<section id="schedule" class="gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
+          <p class="section-title">Organizer Log In</p>
+          <h2 class="section-heading"></h2>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-lg-12 col-md-12" style="background-color: #fff; padding: 45px;">
+        <form role="form">
+          <p class="form-group">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+          </p>
+          <p class="form-group">
+            <label for="loginPass">Password</label>
+            <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+          </p>
+          <p class="form-group" ng-cloak ng-show="createMode">
+            <label for="loginConfirm">Confirm Password</label>
+            <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
+          </p>
+          <p>
+            <button class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
+            <button class="btn btn-default" ng-if="allowRegister" ng-click="createMode = true" ng-hide="createMode">Register</button>
+            <button class="btn btn-primary" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)">Create Account</button>
+            <button class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+          </p>
+        </form>
+        <p ng-show="err" class="bg-danger">{{err}}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -15,10 +15,6 @@
           <li ng-class="{ active: isActive('/schedule')}"><a href="#!/schedule" data-toggle="collapse" data-target="#devfest-navbar">Schedule</a></li>
           <li ng-class="{ active: isActive('/speakers')}"><a href="#!/speakers" data-toggle="collapse" data-target="#devfest-navbar">Speakers</a></li>
           <li ng-class="{ active: isActive('/about')}"><a href="#!/about" data-toggle="collapse" data-target="#devfest-navbar">About</a></li>
-          <li ng-class="{ active: (isActive('/login') || isActive('/account'))}">
-            <a ng-hide-auth="" href="#!/login" data-toggle="collapse" data-target="#devfest-navbar">Log In</a>
-            <a ng-show-auth="" href="#!/account" data-toggle="collapse" data-target="#devfest-navbar">Account</a>
-          </li>
         </ul>
       </div>
     </div>

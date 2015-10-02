@@ -22,6 +22,7 @@ angular.module('devfestApp')
       'eventStart'    : '09:00:00', // start time
       'eventEnd'      : '16:00:00', // end time
       'sessionLength' : '2700000', // use minutes in milliseconds
+      'sessionTracks' : '3', // number of tracks sessions are split into (ie. Mobile, Web, Cloud, etc.)
       
       // social details
       // Google+ social details are derived from the keys above

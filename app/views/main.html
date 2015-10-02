@@ -1,46 +1,63 @@
-<main id="main-content" class="event-layout layout-with-navbar" style="margin-bottom: 234px;">
-  <section id="hero">
-    <div class="container">
-      <div class="vertical-center-wrapper">
-        <div class="vertical-center-table">
-          <div class="vertical-center-content">
-            <div class="hero-content row">
-              <div class="col-lg-10">
-                <h3 class="all-caps text-shadow-meduim">{{ config.eventName }} 2015</h3>
-                <div class="event-hero-info text-shadow-small">
-                  <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventDate | date:'longDate' }}</small>
-                  <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventLocation }}</small>
-                </div>
-                <div>
-                  <a ng-href="{{ config.speakerURL }}" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
-                  <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
-                </div>
+<section id="hero" class="event-layout">
+  <div class="container">
+    <div class="vertical-center-wrapper">
+      <div class="vertical-center-table">
+        <div class="vertical-center-content">
+          <div class="hero-content row">
+            <div class="col-lg-10">
+              <h3 class="all-caps text-shadow-meduim">{{ config.eventName }} 2015</h3>
+              <div class="event-hero-info text-shadow-small">
+                <small><span class="event-hero-icon fa fa-calendar"></span>{{ config.eventDate | date:'longDate' }}</small><br />
+                <small><span class="event-hero-icon fa fa-university"></span>{{ config.eventLocation }}</small>
+              </div>
+              <div>
+                <a ng-href="{{ config.speakerURL }}" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
+                <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section id="location" class="map">
-    <div map-lazy-load="{{ gMapLazy }}" map-lazy-load-params="{{ gMapsUrl }}">
-      <map center="{{ map.lat }}, {{ map.lng }}" zoom="{{ map.zoom }}" scroll-wheel="false" map-type-control="false">
-        <marker id="eventSpace" position="{{ map.lat }}, {{ map.lng }}"></marker>
-        <info-window id="eventDetail" visible-on-marker="eventSpace">
-          <div>
-            <div id="siteNotice"></div>
-            <h4 id="infoHeading"><strong>Location</strong></h4>
-            <div id="infoBody">
-              <p>
-                {{ config.eventLocation }}<br />
-                {{ config.eventAddress }}<br />
-                <a ng-href="{{ 'mailto:' + config.eventEmail }}" target="_blank">{{ config.eventEmail }}</a><br />
-                {{ config.eventStart }} - {{ config.eventEnd }}
-              </p>
-            </div>
-          </div>
-        </info-window>
-      </map>
+  </div>
+</section>
+<section id="introduction" class="centered">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
+        <p class="section-title">About GDG DevFest</p>
+        <h2 class="section-heading">1&nbsp;Day, {{ config.sessionTracks }}&nbsp;Tracks, 12+&nbsp;Speakers, A&nbsp;lot&nbsp;of&nbsp;Attendees</h2>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-lg-10 col-lg-offset-1">
+        <p><strong>GDG DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together to exchange ideas, amazing things can happen!</p>
+      </div>
+      <a ng-href="{{ config.ticketURL }}" target="_blank" class="cta cta-default all-caps">Get Your Ticket</a>
+      <div class="clearfix"></div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+<section id="location">
+  <div map-lazy-load="{{ gMapLazy }}" map-lazy-load-params="{{ gMapsUrl }}">
+    <map center="{{ map.lat }}, {{ map.lng }}" zoom="{{ map.zoom }}" scrollwheel="false" map-type-control="false">
+      <marker id="eventSpace" position="{{ map.lat }}, {{ map.lng }}"></marker>
+      <info-window id="eventDetail" visible-on-marker="eventSpace">
+        <div>
+          <div id="siteNotice"></div>
+          <h4 id="infoHeading"><strong>{{ config.eventName }} Location</strong></h4>
+          <div id="infoBody">
+            <p>
+              {{ config.eventLocation }}<br />
+              {{ config.eventAddress }}<br />
+              {{ config.eventDate | date:'longDate' }}<br />
+              {{ eventStart | date:'shortTime' }} - {{ eventEnd | date:'shortTime' }}
+            </p>
+          </div>
+        </div>
+      </info-window>
+    </map>
+  </div>
+</section>
+<section id="sponsors">
+
+</section>

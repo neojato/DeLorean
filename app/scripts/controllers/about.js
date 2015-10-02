@@ -13,14 +13,14 @@ angular.module('devfestApp')
     
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
           '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount%2Curls&key=' + Config.googleAPI)
-      .success(function (data) {
+      .success(function(data) {
         $scope.desc = data.aboutMe;
         $sce.trustAsHtml($scope.desc);
 
         var users = [];
         for (var i=0; i < data.urls.length; i++) {
           var url = data.urls[i];
-          if (url.label.substring(0, 9) == 'Organizer') {
+          if (url.label.substring(0, 9) === 'Organizer') {
             var user = {
               link: url.value
             };
@@ -28,13 +28,13 @@ angular.module('devfestApp')
           }
         }
         $scope.organizers = users;
-        $timeout(function () {
+        $timeout(function() {
           gapi.person.go();
         });
         $scope.loading = false;
       })
-      .error(function (data) {
-        $scope.desc = "Sorry, we failed to retrieve the About text from the Google+ API.";
+      .error(function() {
+        $scope.desc = 'Sorry, we failed to retrieve the About text from the Google+ API.';
         $scope.loading = false;
       });
   });

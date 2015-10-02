@@ -13,6 +13,7 @@ angular.module('devfestApp')
       // event details
       'eventName'     : 'GDG DevFest KC', // typically 'DevFest [place]'
       'eventLocation' : 'Jack Reardon Convention Center', // location of event
+      'eventAddress'  : '520 Minnesota Ave, Kansas City, KS 66101', // address of event
       'eventURL'      : 'http://devfest.gdgkc.org', // link to event website (ex. G+, Meetup, Eventbrite, etc)
       'eventEmail'    : 'devfest@gdgkc.org', // Email where event inquries should go
       'speakerURL'    : 'https://docs.google.com/forms/d/1cf_qfEmEE7GeAVltMjZbMuQtopdavqdMfPhb0z2dJJg/viewform', // URL for the 'Call for Papers' form

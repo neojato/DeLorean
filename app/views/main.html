@@ -22,4 +22,25 @@
       </div>
     </div>
   </section>
+  <section id="location" class="map">
+    <div map-lazy-load="{{ gMapLazy }}" map-lazy-load-params="{{ gMapsUrl }}">
+      <map center="{{ map.lat }}, {{ map.lng }}" zoom="{{ map.zoom }}" scroll-wheel="false" map-type-control="false">
+        <marker id="eventSpace" position="{{ map.lat }}, {{ map.lng }}"></marker>
+        <info-window id="eventDetail" visible-on-marker="eventSpace">
+          <div>
+            <div id="siteNotice"></div>
+            <h4 id="infoHeading"><strong>Location</strong></h4>
+            <div id="infoBody">
+              <p>
+                {{ config.eventLocation }}<br />
+                {{ config.eventAddress }}<br />
+                <a ng-href="{{ 'mailto:' + config.eventEmail }}" target="_blank">{{ config.eventEmail }}</a><br />
+                {{ config.eventStart }} - {{ config.eventEnd }}
+              </p>
+            </div>
+          </div>
+        </info-window>
+      </map>
+    </div>
+  </section>
 </main>

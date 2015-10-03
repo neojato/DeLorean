@@ -18,5 +18,6 @@ angular.module('devfestApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth',
-    'ngMap'
+    'ngMap',
+    'angular.filter'
   ]);

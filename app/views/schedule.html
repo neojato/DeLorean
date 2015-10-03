@@ -30,21 +30,21 @@
           </li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true">
+          <div role="tabpanel" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true">
             <div class="session-wrapper">
               <div class="row">
                 <div class="col-lg-4 col-md-4 pull-left no-padding">
                   <div class="session-meta">
                     <div class="session-meta-thumbnail">
                       <div class="color-overlay"></div>
-                      <img src="images/venue.jpg" alt="Venue" />
+                      <img src="images/venue_1.jpg" alt="Venue" />
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{session.time}}
+                        <span class="fa fa-clock-o"></span> {{ session.time }}
                       </div>
                       <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{session.room}}
+                        <span class="fa fa-university"></span> {{ session.room }}
                       </div>
                       <div style="padding-top: 25px;">
                         <!-- Edit/Delete a session (Auth required) -->
@@ -56,10 +56,10 @@
                 </div>
                 <div class="col-lg-8 col-md-8 no-padding">
                   <div class="session-description">
-                    <h4 class="session-title">{{session.title}}</h4>
-                    <p>{{session.description}}</p>
+                    <h4 class="session-title">{{ session.title }}</h4>
+                    <p>{{ session.description }}</p>
                     <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                      <span class="fa fa-user-secret"></span> {{ session.speaker }}
                     </div>
                   </div>
                 </div>
@@ -73,14 +73,14 @@
                   <div class="session-meta">
                     <div class="session-meta-thumbnail">
                       <div class="color-overlay"></div>
-                      <img src="images/venue.jpg" alt="Venue" />
+                      <img src="images/venue_1.jpg" alt="Venue" />
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{session.time}}
+                        <span class="fa fa-clock-o"></span> {{ session.time }}
                       </div>
                       <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{session.room}}
+                        <span class="fa fa-university"></span> {{ session.room }}
                       </div>
                       <div style="padding-top: 25px;">
                         <!-- Edit/Delete a session (Auth required) -->
@@ -92,10 +92,10 @@
                 </div>
                 <div class="col-lg-8 col-md-8 no-padding">
                   <div class="session-description">
-                    <h4 class="session-title">{{session.title}}</h4>
-                    <p>{{session.description}}</p>
+                    <h4 class="session-title">{{ session.title }}</h4>
+                    <p>{{ session.description }}</p>
                     <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                      <span class="fa fa-user-secret"></span> {{ session.speaker }}
                     </div>
                   </div>
                 </div>
@@ -109,14 +109,14 @@
                   <div class="session-meta">
                     <div class="session-meta-thumbnail">
                       <div class="color-overlay"></div>
-                      <img src="images/venue.jpg" alt="Venue" />
+                      <img src="images/venue_1.jpg" alt="Venue" />
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{session.time}}
+                        <span class="fa fa-clock-o"></span> {{ session.time }}
                       </div>
                       <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{session.room}}
+                        <span class="fa fa-university"></span> {{ session.room }}
                       </div>
                       <div style="padding-top: 25px;">
                         <!-- Edit/Delete a session (Auth required) -->
@@ -128,10 +128,10 @@
                 </div>
                 <div class="col-lg-8 col-md-8 no-padding">
                   <div class="session-description">
-                    <h4 class="session-title">{{session.title}}</h4>
-                    <p>{{session.description}}</p>
+                    <h4 class="session-title">{{ session.title }}</h4>
+                    <p>{{ session.description }}</p>
                     <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{session.speaker}}
+                      <span class="fa fa-user-secret"></span> {{ session.speaker  }}
                     </div>
                   </div>
                 </div>

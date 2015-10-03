@@ -127,7 +127,7 @@ h6 {
 }
 
 small {
-	font-family: "Droid Serif", serif;
+	font-family: "Droid", sans-serif;
 }
 
 b, strong {
@@ -319,7 +319,7 @@ img.desaturate {
 }
 
 .event-hero-info small {
-	font-size: 18px;
+	font-size: 20px;
 	margin-right: 35px;
 }
 
@@ -726,7 +726,7 @@ h4.session-title {
 
 .session-speaker {
 	font-size: 14px;
-	font-family: "Droid Serif", serif;
+	font-family: "Droid", sans-serif;
 	font-style: italic;
 	color: #999;
 	margin-top: -4px;

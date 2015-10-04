@@ -66,7 +66,7 @@
         <h2 class="section-heading">
           We partner with some of the world's most innovative&nbsp;brands<br />
           <!-- Add sessions (Auth required) -->
-          <a ng-show-auth="" class="btn btn-sm btn-success" ng-click="toggleSponsorModal()">Add Sponsor</a>
+          <a ng-show-auth="" class="btn btn-sm btn-success" ng-click="openFormModal()">Add Sponsor</a>
         </h2>
       </div>
       <div class="clearfix"></div>
@@ -81,6 +81,7 @@
           <ul class="list-inline">
             <li ng-repeat="sponsor in value">
               <a ng-href="{{ sponsor.link }}" target="_blank"><img ng-src="{{ sponsor.image }}" title="{{ sponsor.description }}" alt="{{ sponsor.company }}" /></a>
+              <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="openFormModal(sponsor)">Edit</a>
               <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSponsor(sponsor)">Delete</a>
             </li>
           </ul>
@@ -92,35 +93,45 @@
       </div>
     </div>
   </div>
-  <!-- Add Sponsor -->
-  <modal title="Sponsor Form" visible="showSponsorModal">
-    <form id="sponsorForm" role="form" ng-submit="addSponsor()">
-      <input type="hidden" ng-model="id" />
-      <div class="form-group">
-        <label for="company">Company:</label>
-        <input type="text" id="company" class="form-control" ng-model="sponsor.company" placeholder="Company" required />
-      </div>
-      <div class="form-group">
-        <label for="link">Link:</label>
-        <input type="text" id="link" class="form-control" ng-model="sponsor.link" placeholder="http://example.com" required />
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <input type="text" id="description" class="form-control" ng-model="sponsor.description" placeholder="Text for mouse hover" required />
-      </div>
-      <div class="form-group">
-        <label for="image">Image:</label>
-        <input type="file" id="image" class="form-control" ng-model="sponsor.image" accept="image/x-png" onchange="handleImageAdd" required/>
-      </div>
-      <div class="form-group">
-        <label for="level">Sponsorship Level:</label>
-        <select class="form-control" id="level" ng-model="sponsor.level" required>
-          <option value="Gold">Gold</option>
-          <option value="Silver">Silver</option>
-          <option value="Bronze">Bronze</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-default">Save</button>
-    </form>
-  </modal>
+  
+  <!-- Add/Edit Sponsor -->
+  <script type="text/ng-template" id="modalSponsorForm.html">
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3 class="modal-title">{{ sponsor.company ? 'Edit' : 'Add' }} Sponsor</h3>
+    </div>
+    <div class="modal-body">
+      <form role="form">
+        <div class="form-group">
+          <label for="company">Company:</label>
+          <input type="text" id="company" class="form-control" ng-model="sponsor.company" placeholder="Company" required />
+        </div>
+        <div class="form-group">
+          <label for="link">Link:</label>
+          <input type="text" id="link" class="form-control" ng-model="sponsor.link" placeholder="http://example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" id="description" class="form-control" ng-model="sponsor.description" placeholder="Text for mouse hover" required />
+        </div>
+        <div class="form-group">
+          <label for="image">Image:</label>
+          <input type="file" id="image" class="form-control" ng-model="sponsor.image" accept="image/x-png" required />
+        </div>
+        <div class="form-group">
+          <label for="level">Sponsorship Level:</label>
+          <select class="form-control" id="level" ng-model="sponsor.level" required>
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+            <option value="Bronze">Bronze</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <p ng-show="err" class="bg-danger">{{ err }}</p>
+      <button class="btn btn-success" type="submit" ng-click="saveSponsor(sponsor)">Save</button>
+      <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
 </section>

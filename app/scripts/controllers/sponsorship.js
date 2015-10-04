@@ -8,17 +8,9 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SponsorshipCtrl', function ($scope, Ref, $firebaseArray, $timeout, Config) {
+  .controller('SponsorshipCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, Config) {
     $scope.site = Config;
     $scope.sponsors = $firebaseArray(Ref.child('sponsors'));
-    $scope.showSponsorModal = false;
-    $scope.sponsor = {
-      'company': null,
-      'link': null,
-      'description': null,
-      'image': null,
-      'level': null
-    };
 
     var sHour = Config.eventStart.substring(0, Config.eventStart.indexOf(':'));
     var sMinutes = Config.eventStart.substring(Config.eventStart.indexOf(':')+1, Config.eventStart.indexOf(':')+3);
@@ -35,21 +27,86 @@ angular.module('devfestApp')
     $scope.eventStart = new Date(event.getFullYear(), event.getMonth(), event.getDate(), sHour, sMinutes, 0);
     $scope.eventEnd = new Date(event.getFullYear(), event.getMonth(), event.getDate(), eHour, eMinutes, 0);
 
-    $scope.toggleSponsorModal = function() {
-      $scope.showSponsorModal = !$scope.showSponsorModal;
+    $scope.openFormModal = function(sponsor) {
+      $scope.sponsor = sponsor;
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'modalSponsorForm.html',
+        controller: 'SponsorModalCtrl',
+        resolve: {
+          sponsor: function() {
+            return $scope.sponsor;
+          }
+        }
+      });
+      modalInstance.result.then(function(results) {
+        if (results.action === 'add') {
+          $scope.add(results.sponsor);
+        } else if (results.action === 'edit') {
+          $scope.edit(results.sponsor);
+        }
+      });
     };
 
-    $scope.addSponsor = function() {
-      if ($scope.imageData) {
-        $scope.sponsor.image = $scope.imageData;
-      }
-      $scope.sponsors.$add($scope.sponsor).catch(alert);
-      $scope.toggleSponsorModal();
+    $scope.add = function(sponsor) {
+      $scope.sponsors.$add(sponsor);
+      $scope.refresh();
+    };
+
+    $scope.editSponsor = function(sponsor) {
+      $scope.openFormModal(sponsor);
+    };
+
+    $scope.edit = function(sponsor) {
+      $scope.sponsors.$save(sponsor);
+      $scope.refresh();
     };
 
     $scope.deleteSponsor = function(sponsor) {
       if (confirm('Are you sure you want to delete this sponsor?')) {
         $scope.sponsors.$remove(sponsor);
+        $scope.refresh();
+      }
+    };
+  
+    $scope.refresh = function() {
+      $timeout(function() {
+        $route.reload();
+      }, 500);
+    };
+  });
+
+/**
+ * @ngdoc function
+ * @name devfestApp.controller:SponsorModalCtrl
+ * @description
+ * # SponsorModalCtrl
+ * Controller of the devfestApp
+ */
+angular.module('devfestApp')
+  .controller('SponsorModalCtrl', function ($scope, $modalInstance, sponsor) {
+    $scope.sponsor = sponsor;
+    $scope.err = null;
+    
+    $scope.saveSponsor = function(sponsor) {
+      if (sponsor && sponsor.$id) {
+        if ($scope.imageData) {
+          sponsor.image = $scope.imageData;
+        }
+        $modalInstance.close({
+          'action': 'edit',
+          'sponsor': sponsor
+        });
+      } else if (sponsor) {
+        if ($scope.imageData) {
+          sponsor.image = $scope.imageData;
+        }
+        $modalInstance.close({
+          'action': 'add',
+          'sponsor': sponsor
+        });
+      } else {
+        $scope.err = 'Please fill out the form or click Cancel to close.';
       }
     };
     
@@ -68,11 +125,8 @@ angular.module('devfestApp')
     $scope.$watch('sponsorForm', function() {
       document.getElementById('image').addEventListener('change', $scope.handleImageAdd, false);
     }, true);
-
-    function alert(msg) {
-      $scope.err = msg;
-      $timeout(function() {
-        $scope.err = null;
-      }, 5000);
-    }
+    
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
   });

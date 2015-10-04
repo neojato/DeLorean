@@ -14,10 +14,10 @@ angular.module('devfestApp')
     $scope.gMapURL = 'https://maps.google.com/maps/api/js?client=' + Config.googleAPI;
 
     var sHour = Config.eventStart.substring(0, Config.eventStart.indexOf(':'));
-    var sMinutes = Config.eventStart.substring(Config.eventStart.indexOf(':')+1, Config.eventStart.indexOf(':')+2);
+    var sMinutes = Config.eventStart.substring(Config.eventStart.indexOf(':')+1, Config.eventStart.indexOf(':')+3);
 
     var eHour = Config.eventEnd.substring(0, Config.eventEnd.indexOf(':'));
-    var eMinutes = Config.eventEnd.substring(Config.eventEnd.indexOf(':')+1, Config.eventEnd.indexOf(':')+2);
+    var eMinutes = Config.eventEnd.substring(Config.eventEnd.indexOf(':')+1, Config.eventEnd.indexOf(':')+3);
 
     function parseDate(str) {
       var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);

@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route) {
+  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, Config) {
     $scope.sessions = $firebaseArray(Ref.child('sessions'));
     $scope.showModal = false;
     $scope.tab = 1;
@@ -69,11 +69,23 @@ angular.module('devfestApp')
         $scope.sessions.$remove(session);
       }
     };
+    
+    $scope.getTime = function(time) {
+      var sHour = time.substring(0, time.indexOf(':'));
+      var sMinutes = time.substring(time.indexOf(':')+1, time.indexOf(':')+3);
+      var event = parseDate(Config.eventDate);
+      return new Date(event.getFullYear(), event.getMonth(), event.getDate(), sHour, sMinutes, 0);
+    };
 
     function alert(msg) {
       $scope.err = msg;
       $timeout(function() {
         $scope.err = null;
       }, 5000);
+    }
+
+    function parseDate(str) {
+      var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+      return (d) ? new Date(d[1], d[2]-1, d[3]) : new Date();
     }
   });

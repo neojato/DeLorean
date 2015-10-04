@@ -30,7 +30,7 @@
           </li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true">
+          <div role="tabpanel" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true | orderBy:'time'">
             <div class="session-wrapper">
               <div class="row">
                 <div class="col-lg-4 col-md-4 pull-left no-padding">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ session.time }}
+                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
                       </div>
                       <div class="session-info-place">
                         <span class="fa fa-university"></span> {{ session.room }}
@@ -77,7 +77,7 @@
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ session.time }}
+                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
                       </div>
                       <div class="session-info-place">
                         <span class="fa fa-university"></span> {{ session.room }}
@@ -113,7 +113,7 @@
                     </div>
                     <div class="session-meta-info">
                       <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ session.time }}
+                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
                       </div>
                       <div class="session-info-place">
                         <span class="fa fa-university"></span> {{ session.room }}
@@ -156,7 +156,7 @@
       </div>
       <div class="form-group">
         <label for="time">Time:</label>
-        <input type="text" id="time" class="form-control" ng-model="session.time" placeholder="9:00 am" />
+        <input type="text" id="time" class="form-control" ng-model="session.time" placeholder="HH:mm:ss" />
       </div>
       <div class="form-group">
         <label for="speaker">Speaker:</label>

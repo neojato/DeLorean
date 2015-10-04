@@ -884,6 +884,10 @@ ul.speaker-social li a {
   .navbar-left {
     float: left !important;
   }
+  
+  .navbar-right {
+    float: none !important;
+  }
 
   .navbar-toggle {
     display: block;

@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout) {
+  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route) {
     $scope.sessions = $firebaseArray(Ref.child('sessions'));
     $scope.showModal = false;
     $scope.tab = 1;
@@ -38,6 +38,10 @@ angular.module('devfestApp')
     $scope.addSession = function() {
       $scope.sessions.$add($scope.session).catch(alert);
       $scope.toggleModal();
+      for (var prop in $scope.session) $scope.session[prop] = null; // reset
+      $timeout(function() {
+        $route.reload();
+      }, 1000);
     };
 
     $scope.editSession = function(session) {
@@ -51,6 +55,10 @@ angular.module('devfestApp')
         delete $scope.session.id;
         $scope.sessions.$save($scope.session);
         $scope.toggleModal();
+        for (var prop in $scope.session) $scope.session[prop] = null; // reset
+        $timeout(function() {
+          $route.reload();
+        }, 1000);
       } else {
         $scope.addSession();
       }

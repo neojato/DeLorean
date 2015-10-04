@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $window, Config) {
+  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $window, $route, Config) {
     $scope.site = Config;
     $scope.speakers = $firebaseArray(Ref.child('speakers'));
     $scope.showModal = false;
@@ -42,6 +42,10 @@ angular.module('devfestApp')
       }
       $scope.speakers.$add($scope.speaker).catch(alert);
       $scope.toggleModal();
+      for (var prop in $scope.speaker) $scope.speaker[prop] = null; // reset
+      $timeout(function() {
+        $route.reload();
+      }, 1000);
     };
 
     $scope.editSpeaker = function(speaker) {
@@ -58,6 +62,10 @@ angular.module('devfestApp')
         }
         $scope.speakers.$save($scope.speaker);
         $scope.toggleModal();
+        for (var prop in $scope.speaker) $scope.speaker[prop] = null; // reset
+        $timeout(function() {
+          $route.reload();
+        }, 1000);
       } else {
         $scope.addSpeaker();
       }

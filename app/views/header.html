@@ -1,8 +1,8 @@
-<div class="header" ng-cloak="">
+<div class="header" ng-cloak="" ng-controller="HeaderCtrl">
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div claass="container">
       <div class="navbar-header navbar-left">
-        <a href="#!/" class="navbar-brand logo"><img src="images/devfest.png" alt="DevFest Logo"></a>
+        <a href="#!/" class="navbar-brand">{{ site.eventName }}</a>
       </div>
       <div class="navbar-header navbar-right">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#devfest-navbar" aria-expanded="false">
@@ -12,7 +12,7 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse navbar-right" id="devfest-navbar" ng-controller="HeaderCtrl">
+      <div class="collapse navbar-collapse navbar-right" id="devfest-navbar">
         <ul class="nav navbar-nav">
           <li ng-class="{ active: isActive('/')}"><a href="#!/" data-toggle="collapse" data-target="#devfest-navbar">Home</a></li>
           <li ng-class="{ active: isActive('/schedule')}"><a href="#!/schedule" data-toggle="collapse" data-target="#devfest-navbar">Schedule</a></li>

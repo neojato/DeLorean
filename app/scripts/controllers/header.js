@@ -8,7 +8,9 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('HeaderCtrl', function ($scope, $location) {
+  .controller('HeaderCtrl', function ($scope, $location, Config) {
+    $scope.site = Config;
+  
     $scope.isActive = function (viewLocation) {
       return viewLocation === $location.path();
     };

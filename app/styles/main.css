@@ -799,8 +799,8 @@ h4.session-title {
 }
 
 .speaker-image {
-  width: 86%;
-  padding-right: 6px;
+  width: 200px;
+  padding-right: 12px;
 }
 
 .speaker-item:hover .speaker-item-content img {

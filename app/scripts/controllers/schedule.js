@@ -65,7 +65,7 @@ angular.module('devfestApp')
     $scope.refresh = function() {
       $timeout(function() {
         $route.reload();
-      }, 1000);
+      }, 500);
     };
     
     $scope.getTime = function(time) {
@@ -83,9 +83,9 @@ angular.module('devfestApp')
 
 /**
  * @ngdoc function
- * @name devfestApp.controller:SpeakerModalCtrl
+ * @name devfestApp.controller:SessionModalCtrl
  * @description
- * # SpeakerModalCtrl
+ * # SessionModalCtrl
  * Controller of the devfestApp
  */
 angular.module('devfestApp')

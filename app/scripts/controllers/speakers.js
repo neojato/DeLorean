@@ -26,8 +26,11 @@ angular.module('devfestApp')
       });
       modalInstance.result.then(function(results) {
         console.log(results);
-      }, function() {
-        console.log('speaker modal closed');
+        if (results.action === 'add') {
+          $scope.add(results.speaker);
+        } else if (results.action === 'edit') {
+          $scope.edit(results.speaker);
+        }
       });
     };
 
@@ -44,47 +47,64 @@ angular.module('devfestApp')
         }
       });
       modalInstance.result.then(function(results) {
-        console.log(results);
         if (results.action === 'delete') {
           $scope.delete(results.speaker);
         } else if (results.action === 'edit') {
           $scope.openFormModal(results.speaker);
         }
-      }, function() {
-        console.log('info modal closed');
       });
+    };
+
+    $scope.add = function(speaker) {
+      $scope.speakers.$add($scope.speaker);
+      $scope.refresh();
+    };
+
+    $scope.edit = function(speaker) {
+      $scope.speakers.$save($scope.speaker);
+      $scope.refresh();
     };
   
     $scope.delete = function(speaker) {
       $scope.speakers.$remove(speaker);
+      $scope.refresh();
     };
-
-    $scope.addSpeaker = function() {
-      if ($scope.imageData) {
-        $scope.speaker.image = $scope.imageData;
-      }
-      $scope.speakers.$add($scope.speaker).catch(alert);
-      $scope.toggleModal();
-      for (var prop in $scope.speaker) $scope.speaker[prop] = null; // reset
+  
+    $scope.refresh = function() {
       $timeout(function() {
         $route.reload();
       }, 1000);
     };
+  });
 
-    $scope.saveSpeaker = function() {
-      if ($scope.speaker.id !== null) {
-        delete $scope.speaker.id;
+/**
+ * @ngdoc function
+ * @name devfestApp.controller:SpeakerModalCtrl
+ * @description
+ * # SpeakerModalCtrl
+ * Controller of the devfestApp
+ */
+angular.module('devfestApp')
+  .controller('SpeakerModalCtrl', function ($scope, $modalInstance, speaker) {
+    $scope.speaker = speaker;
+    
+    $scope.saveSpeaker = function(speaker) {
+      if (speaker.$id) {
         if ($scope.imageData) {
-          $scope.speaker.image = $scope.imageData;
+          speaker.image = $scope.imageData;
         }
-        $scope.speakers.$save($scope.speaker);
-        $scope.toggleModal();
-        for (var prop in $scope.speaker) $scope.speaker[prop] = null; // reset
-        $timeout(function() {
-          $route.reload();
-        }, 1000);
+        $modalInstance.close({
+          'action': 'edit',
+          'speaker': speaker
+        });
       } else {
-        $scope.addSpeaker();
+        if ($scope.imageData) {
+          speaker.image = $scope.imageData;
+        }
+        $modalInstance.close({
+          'action': 'add',
+          'speaker': speaker
+        });
       }
     };
     
@@ -103,27 +123,11 @@ angular.module('devfestApp')
     $scope.$watch('speakerForm', function() {
       document.getElementById('image').addEventListener('change', $scope.handleImageAdd, false);
     }, true);
-
-    function alert(msg) {
-      $scope.err = msg;
-      $timeout(function() {
-        $scope.err = null;
-      }, 5000);
-    }
-  });
-
-/**
- * @ngdoc function
- * @name devfestApp.controller:SpeakerModalCtrl
- * @description
- * # SpeakerModalCtrl
- * Controller of the devfestApp
- */
-angular.module('devfestApp')
-  .controller('SpeakerModalCtrl', function ($scope, $modalInstance, speaker) {
     
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
   });
-
 
 /**
  * @ngdoc function

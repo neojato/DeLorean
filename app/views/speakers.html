@@ -1,41 +1,123 @@
-<!-- Speaker Profiles -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h2 class="page-header">Speakers</h2>
-    </div>
-    <div class="col-md-4 text-center">
-      <div class="thumbnail">
-        <img class="img-responsive" src="http://placehold.it/750x450">
-        <div class="caption">
-          <h3>John Smith<br />
-            <small>Job Title</small>
-          </h3>
-          <p>What does this team member do? Keep it short! This is also a great spot for social links!</p>
-          <ul class="list-unstyled list-inline list-social-icons">
-            <li class="tooltip-social google-plus-link">
-              <a href="#google-plus-profile" data-toggle="tooltip" data-placement="top" title="Google+">
-                <i class="fa fa-google-plus-square fa-2x"></i>
-              </a>
-            </li>
-            <li class="tooltip-social facebook-link">
-              <a href="#facebook-profile" data-toggle="tooltip" data-placement="top" title="Facebook">
-                <i class="fa fa-facebook-square fa-2x"></i>
-              </a>
-            </li>
-            <li class="tooltip-social twitter-link">
-              <a href="#twitter-profile" data-toggle="tooltip" data-placement="top" title="Twitter">
-                <i class="fa fa-twitter-square fa-2x"></i>
-              </a>
-            </li>
-            <li class="tooltip-social github-link">
-              <a href="#github-profile" data-toggle="tooltip" data-placement="top" title="GitHub">
-                <i class="fa fa-github-square fa-2x"></i>
-              </a>
-            </li>
-          </ul>
+<section id="speakers" class="gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 centered">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
+          <p class="section-title">Meet the Speakers</p>
+          <h2 class="section-heading">
+            <!-- Add sessions (Auth required) -->
+            <a ng-show-auth="" class="btn btn-sm btn-success" ng-click="toggleModal()">Add Speaker</a>
+          </h2>
         </div>
+      </div>
+      <div class="clearfix"></div>
+      <ul ng-if="speakers.length > 0" id="speaker_grid">
+        <li class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 speaker-item" ng-repeat="speaker in speakers">
+          <div class="speaker-item-content" style="cursor: pointer;" ng-click="toggleInfoModal(speaker)">
+            <img ng-src="{{ speaker.image }}" alt="{{ speaker.name }}"/>
+            <div class="speaker-info centered">
+              <h6>{{ speaker.name }}<br /><small>{{ speaker.company }} / {{ speaker.title }}</small></h6>
+              <small>Click for<br />More Info</small>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div ng-if="speakers.length === 0" class="centered">
+        Stay tuned! Speakers are being added soon!
       </div>
     </div>
   </div>
-</div>
+  <!-- Add/Edit Speaker -->
+  <modal title="Speaker Form" visible="showModal">
+    <form id="speakerForm" role="form" ng-submit="saveSpeaker()">
+      <input type="hidden" ng-model="id" />
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" ng-model="speaker.name" placeholder="Full Name" />
+      </div>
+      <div class="form-group">
+        <label for="comapny">Company:</label>
+        <input type="text" id="comapny" class="form-control" ng-model="speaker.company" placeholder="Google" />
+      </div>
+      <div class="form-group">
+        <label for="title">Position/Title:</label>
+        <input type="text" id="title" class="form-control" ng-model="speaker.title" placeholder="Wizard" />
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio:</label>
+        <textarea name="bio" id="bio" class="form-control" ng-model="speaker.bio" placeholder="What do they do? Keep it short &amp; simple"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="file" id="image" class="form-control" ng-model="sponsor.image" accept="image/x-png" onchange="handleImageAdd"/>
+      </div>
+      <div class="form-group">
+        <label for="google">Google+: (only add the handle)</label>
+        <input type="text" id="google" class="form-control" ng-model="speaker.google" placeholder="+Awesome" />
+      </div>
+      <div class="form-group">
+        <label for="facebook">Facebook: (only add the handle)</label>
+        <input type="text" id="facebook" class="form-control" ng-model="speaker.facebook" placeholder="Awesome" />
+      </div>
+      <div class="form-group">
+        <label for="twitter">Twitter: (only add the handle)</label>
+        <input type="text" id="twitter" class="form-control" ng-model="speaker.twitter" placeholder="Awesome" />
+      </div>
+      <div class="form-group">
+        <label for="github">GitHub: (only add the handle)</label>
+        <input type="text" id="github" class="form-control" ng-model="speaker.github" placeholder="Awesome" />
+      </div>
+      <div class="form-group">
+        <label for="website">Website:</label>
+        <input type="text" id="website" class="form-control" ng-model="speaker.website" placeholder="http://awesome.com/" />
+      </div>
+      <button type="submit" class="btn btn-default">Save</button>
+    </form>
+  </modal>
+  <!-- Speaker Info -->
+  <modal title="Speaker Info" visible="showInfoModal">
+    <div>
+      <div class="pull-left">
+        <img class="speaker-image" ng-src="{{ speaker.image }}">
+      </div>
+      <div>
+        <h3>{{ speaker.name }}<br />
+          <small>{{ speaker.company }} / {{ speaker.title }}</small>
+        </h3>
+        <p>{{ speaker.bio }}</p>
+      </div>
+    </div>
+    <ul class="list-unstyled list-inline list-social-icons">
+      <li ng-show="speaker.google" class="tooltip-social google-plus-link">
+        <a href="" ng-click="socialLink('google_plus', speaker.google)" data-toggle="tooltip" data-placement="top" title="Google+">
+          <i class="fa fa-google-plus-square fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="speaker.facebook" class="tooltip-social facebook-link">
+        <a href="" ng-click="socialLink('facebook', speaker.facebook)" data-toggle="tooltip" data-placement="top" title="Facebook">
+          <i class="fa fa-facebook-square fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="speaker.twitter" class="tooltip-social twitter-link">
+        <a href="" ng-click="socialLink('twitter', speaker.twitter)" data-toggle="tooltip" data-placement="top" title="Twitter">
+          <i class="fa fa-twitter-square fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="speaker.github" class="tooltip-social github-link">
+        <a  href="" ng-click="socialLink('github', speaker.github)" data-toggle="tooltip" data-placement="top" title="GitHub">
+          <i class="fa fa-github-square fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="speaker.website" class="tooltip-social website-link">
+        <a ng-href="{{ speaker.website }}" data-toggle="tooltip" data-placement="top" title="Website">
+          <i class="fa fa-chrome fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+    <div ng-show-auth="">
+      <!-- Edit/Delete a session (Auth required) -->
+      <a class="btn btn-sm btn-primary" ng-click="editSpeaker(speaker)">Edit</a>
+      <a class="btn btn-sm btn-danger" ng-click="deleteSpeaker(speaker)">Delete</a>
+    </div>
+  </modal>
+</section>

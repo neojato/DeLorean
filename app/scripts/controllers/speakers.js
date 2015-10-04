@@ -8,32 +8,55 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $window, $route, Config) {
+  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, Config) {
     $scope.site = Config;
     $scope.speakers = $firebaseArray(Ref.child('speakers'));
-    $scope.showModal = false;
-    $scope.showInfoModal = false;
-    $scope.speaker = {
-      'id': null,
-      'name': null,
-      'company': null,
-      'title': null,
-      'bio': null,
-      'image': null,
-      'google': null,
-      'facebook': null,
-      'twitter': null,
-      'github': null,
-      'website': null
-    };
 
-    $scope.toggleModal = function() {
-      $scope.showModal = !$scope.showModal;
-    };
-
-    $scope.toggleInfoModal = function(speaker) {
-      $scope.showInfoModal = !$scope.showInfoModal;
+    $scope.openFormModal = function(speaker) {
       $scope.speaker = speaker;
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'modalSpeakerForm.html',
+        controller: 'SpeakerModalCtrl',
+        resolve: {
+          speaker: function() {
+            return $scope.speaker;
+          }
+        }
+      });
+      modalInstance.result.then(function(results) {
+        console.log(results);
+      }, function() {
+        console.log('speaker modal closed');
+      });
+    };
+
+    $scope.openInfoModal = function(speaker) {
+      $scope.speaker = speaker;
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'modalInfoContent.html',
+        controller: 'InfoModalCtrl',
+        resolve: {
+          speaker: function() {
+            return $scope.speaker;
+          }
+        }
+      });
+      modalInstance.result.then(function(results) {
+        console.log(results);
+        if (results.action === 'delete') {
+          $scope.delete(results.speaker);
+        } else if (results.action === 'edit') {
+          $scope.openFormModal(results.speaker);
+        }
+      }, function() {
+        console.log('info modal closed');
+      });
+    };
+  
+    $scope.delete = function(speaker) {
+      $scope.speakers.$remove(speaker);
     };
 
     $scope.addSpeaker = function() {
@@ -46,12 +69,6 @@ angular.module('devfestApp')
       $timeout(function() {
         $route.reload();
       }, 1000);
-    };
-
-    $scope.editSpeaker = function(speaker) {
-      $scope.toggleInfoModal();
-      $scope.speaker = speaker;
-      $scope.toggleModal();
     };
 
     $scope.saveSpeaker = function() {
@@ -70,13 +87,6 @@ angular.module('devfestApp')
         $scope.addSpeaker();
       }
     };
-
-    $scope.deleteSpeaker = function(speaker) {
-      if (confirm('Are you sure you want to delete this speaker?')) {
-        $scope.speakers.$remove(speaker);
-        $scope.toggleInfoModal();
-      }
-    };
     
     $scope.handleImageAdd = function(evt) {
       var f = evt.target.files[0];
@@ -93,6 +103,54 @@ angular.module('devfestApp')
     $scope.$watch('speakerForm', function() {
       document.getElementById('image').addEventListener('change', $scope.handleImageAdd, false);
     }, true);
+
+    function alert(msg) {
+      $scope.err = msg;
+      $timeout(function() {
+        $scope.err = null;
+      }, 5000);
+    }
+  });
+
+/**
+ * @ngdoc function
+ * @name devfestApp.controller:SpeakerModalCtrl
+ * @description
+ * # SpeakerModalCtrl
+ * Controller of the devfestApp
+ */
+angular.module('devfestApp')
+  .controller('SpeakerModalCtrl', function ($scope, $modalInstance, speaker) {
+    
+  });
+
+
+/**
+ * @ngdoc function
+ * @name devfestApp.controller:InfoModalCtrl
+ * @description
+ * # InfoModalCtrl
+ * Controller of the devfestApp
+ */
+angular.module('devfestApp')
+  .controller('InfoModalCtrl', function ($scope, $modalInstance, $window, speaker) {
+    $scope.speaker = speaker;
+
+    $scope.editSpeaker = function(speaker) {
+      $modalInstance.close({
+        'action': 'edit',
+        'speaker': speaker
+      });
+    };
+
+    $scope.deleteSpeaker = function(speaker) {
+      if (confirm('Are you sure you want to delete this speaker?')) {
+        $modalInstance.close({
+          'action': 'delete',
+          'speaker': speaker
+        });
+      }
+    };
     
     $scope.socialLink = function(network, profile) {
       var link = '';
@@ -115,11 +173,8 @@ angular.module('devfestApp')
       $window.open(link, '_blank');
       return false;
     };
-
-    function alert(msg) {
-      $scope.err = msg;
-      $timeout(function() {
-        $scope.err = null;
-      }, 5000);
-    }
+    
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
   });

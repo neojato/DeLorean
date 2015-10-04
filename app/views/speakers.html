@@ -13,7 +13,7 @@
       <div class="clearfix"></div>
       <ul ng-if="speakers.length > 0" id="speaker_grid">
         <li class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 speaker-item" ng-repeat="speaker in speakers">
-          <div class="speaker-item-content" style="cursor: pointer;" ng-click="toggleInfoModal(speaker)">
+          <div class="speaker-item-content" style="cursor: pointer;" ng-click="openInfoModal(speaker)">
             <img ng-src="{{ speaker.image }}" alt="{{ speaker.name }}"/>
             <div class="speaker-info centered">
               <h6>{{ speaker.name }}<br /><small>{{ speaker.company }} / {{ speaker.title }}</small></h6>
@@ -74,50 +74,55 @@
       <button type="submit" class="btn btn-default">Save</button>
     </form>
   </modal>
+  
   <!-- Speaker Info -->
-  <modal title="Speaker Info" visible="showInfoModal">
-    <div>
-      <div class="pull-left">
-        <img class="speaker-image" ng-src="{{ speaker.image }}">
-      </div>
+  <script type="text/ng-template" id="modalInfoContent.html">
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3 class="modal-title">{{ speaker.name }}</h3>
+    </div>
+    <div class="modal-body">
       <div>
-        <h3>{{ speaker.name }}<br />
-          <small>{{ speaker.company }} / {{ speaker.title }}</small>
-        </h3>
-        <p>{{ speaker.bio }}</p>
+        <div class="pull-left">
+          <img class="speaker-image" ng-src="{{ speaker.image }}">
+        </div>
+        <div>
+          <h3>{{ speaker.company }} / {{ speaker.title }}</h3>
+          <p>{{ speaker.bio }}</p>
+        </div>
       </div>
     </div>
-    <ul class="speaker-social">
-      <li ng-show="speaker.google" class="google-plus-link">
-        <a href="" ng-click="socialLink('google_plus', speaker.google)" data-placement="top" title="Google+">
-          <i class="fa fa-google-plus-square fa-2x"></i>
-        </a>
-      </li>
-      <li ng-show="speaker.facebook" class="facebook-link">
-        <a href="" ng-click="socialLink('facebook', speaker.facebook)" data-placement="top" title="Facebook">
-          <i class="fa fa-facebook-square fa-2x"></i>
-        </a>
-      </li>
-      <li ng-show="speaker.twitter" class="twitter-link">
-        <a href="" ng-click="socialLink('twitter', speaker.twitter)" data-placement="top" title="Twitter">
-          <i class="fa fa-twitter-square fa-2x"></i>
-        </a>
-      </li>
-      <li ng-show="speaker.github" class="github-link">
-        <a  href="" ng-click="socialLink('github', speaker.github)" data-placement="top" title="GitHub">
-          <i class="fa fa-github-square fa-2x"></i>
-        </a>
-      </li>
-      <li ng-show="speaker.website" class="website-link">
-        <a ng-href="{{ speaker.website }}" data-placement="top" title="Website">
-          <i class="fa fa-chrome fa-2x"></i>
-        </a>
-      </li>
-    </ul>
-    <div ng-show-auth="">
-      <!-- Edit/Delete a session (Auth required) -->
-      <a class="btn btn-sm btn-primary" ng-click="editSpeaker(speaker)">Edit</a>
-      <a class="btn btn-sm btn-danger" ng-click="deleteSpeaker(speaker)">Delete</a>
+    <div class="modal-footer">
+      <ul class="speaker-social">
+        <li ng-show="speaker.google" class="google-plus-link">
+          <a href="" ng-click="socialLink('google_plus', speaker.google)" data-placement="top" title="Google+">
+            <i class="fa fa-google-plus-square fa-2x"></i>
+          </a>
+        </li>
+        <li ng-show="speaker.facebook" class="facebook-link">
+          <a href="" ng-click="socialLink('facebook', speaker.facebook)" data-placement="top" title="Facebook">
+            <i class="fa fa-facebook-square fa-2x"></i>
+          </a>
+        </li>
+        <li ng-show="speaker.twitter" class="twitter-link">
+          <a href="" ng-click="socialLink('twitter', speaker.twitter)" data-placement="top" title="Twitter">
+            <i class="fa fa-twitter-square fa-2x"></i>
+          </a>
+        </li>
+        <li ng-show="speaker.github" class="github-link">
+          <a  href="" ng-click="socialLink('github', speaker.github)" data-placement="top" title="GitHub">
+            <i class="fa fa-github-square fa-2x"></i>
+          </a>
+        </li>
+        <li ng-show="speaker.website" class="website-link">
+          <a ng-href="{{ speaker.website }}" data-placement="top" title="Website">
+            <i class="fa fa-chrome fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- Edit/Delete a speaker (Auth required) -->
+      <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSpeaker(speaker)">Edit</a>
+      <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSpeaker(speaker)">Delete</a>
     </div>
-  </modal>
+  </script>
 </section>

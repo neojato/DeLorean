@@ -12,15 +12,15 @@
         <form role="form">
           <p class="form-group">
             <label for="loginEmail">Email</label>
-            <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+            <input id="loginEmail" name="email" type="email" ng-model="email" class="form-control" required />
           </p>
           <p class="form-group">
             <label for="loginPass">Password</label>
-            <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+            <input id="loginPass" name="pass" type="password" ng-model="pass" class="form-control" required />
           </p>
-          <p class="form-group" ng-cloak ng-show="createMode">
+          <p class="form-group" ng-cloak ng-if="allowRegister" ng-show="createMode">
             <label for="loginConfirm">Confirm Password</label>
-            <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
+            <input id="loginConfirm" name="confirm" type="password" ng-model="confirm" class="form-control" required />
           </p>
           <p>
             <button class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>

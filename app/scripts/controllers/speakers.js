@@ -25,7 +25,6 @@ angular.module('devfestApp')
         }
       });
       modalInstance.result.then(function(results) {
-        console.log(results);
         if (results.action === 'add') {
           $scope.add(results.speaker);
         } else if (results.action === 'edit') {
@@ -56,12 +55,12 @@ angular.module('devfestApp')
     };
 
     $scope.add = function(speaker) {
-      $scope.speakers.$add($scope.speaker);
+      $scope.speakers.$add(speaker);
       $scope.refresh();
     };
 
     $scope.edit = function(speaker) {
-      $scope.speakers.$save($scope.speaker);
+      $scope.speakers.$save(speaker);
       $scope.refresh();
     };
   
@@ -73,7 +72,7 @@ angular.module('devfestApp')
     $scope.refresh = function() {
       $timeout(function() {
         $route.reload();
-      }, 1000);
+      }, 500);
     };
   });
 
@@ -87,9 +86,10 @@ angular.module('devfestApp')
 angular.module('devfestApp')
   .controller('SpeakerModalCtrl', function ($scope, $modalInstance, speaker) {
     $scope.speaker = speaker;
+    $scope.err = null;
     
     $scope.saveSpeaker = function(speaker) {
-      if (speaker.$id) {
+      if (speaker && speaker.$id) {
         if ($scope.imageData) {
           speaker.image = $scope.imageData;
         }
@@ -97,7 +97,7 @@ angular.module('devfestApp')
           'action': 'edit',
           'speaker': speaker
         });
-      } else {
+      } else if (speaker) {
         if ($scope.imageData) {
           speaker.image = $scope.imageData;
         }
@@ -105,6 +105,8 @@ angular.module('devfestApp')
           'action': 'add',
           'speaker': speaker
         });
+      } else {
+        $scope.err = 'Please fill out the form or click Cancel to close.';
       }
     };
     

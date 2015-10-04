@@ -11,18 +11,18 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <ul ng-if="speakers.length > 0" id="speaker_grid">
+      <ul ng-cloak ng-if="speakers.length > 0" id="speaker_grid">
         <li class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 speaker-item" ng-repeat="speaker in speakers">
           <div class="speaker-item-content" style="cursor: pointer;" ng-click="openInfoModal(speaker)">
             <img ng-src="{{ speaker.image }}" alt="{{ speaker.name }}"/>
             <div class="speaker-info centered">
               <h6>{{ speaker.name }}<br /><small>{{ speaker.company }} / {{ speaker.title }}</small></h6>
-              <small>Click for<br />More Info</small>
+              <small>Click for<br />more info</small>
             </div>
           </div>
         </li>
       </ul>
-      <div ng-if="speakers.length === 0" class="centered">
+      <div ng-cloak ng-if="speakers.length === 0" class="centered">
         Stay tuned! Speakers are being added soon!
       </div>
     </div>
@@ -32,18 +32,17 @@
   <script type="text/ng-template" id="modalSpeakerForm.html">
     <div class="modal-header">
       <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h3 class="modal-title">{{ speaker.name !== '' ? 'Edit ' + speaker.name : 'Add Speaker' }}</h3>
+      <h3 class="modal-title">{{ speaker.name ? 'Edit' : 'Add' }} Speaker</h3>
     </div>
     <div class="modal-body">
       <form id="speakerForm" role="form">
-        <input type="hidden" id="id" ng-model="speaker.$id" />
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" class="form-control" ng-model="speaker.name" placeholder="Full Name" required />
         </div>
         <div class="form-group">
-          <label for="comapny">Company:</label>
-          <input type="text" id="comapny" class="form-control" ng-model="speaker.company" placeholder="Google" required />
+          <label for="company">Company:</label>
+          <input type="text" id="company" class="form-control" ng-model="speaker.company" placeholder="Google" required />
         </div>
         <div class="form-group">
           <label for="title">Position/Title:</label>
@@ -80,6 +79,7 @@
       </form>
     </div>
     <div class="modal-footer">
+      <p ng-show="err" class="bg-danger">{{ err }}</p>
       <button class="btn btn-success" type="submit" ng-click="saveSpeaker(speaker)">Save</button>
       <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
     </div>
@@ -97,7 +97,7 @@
           <img class="speaker-image" ng-src="{{ speaker.image }}">
         </div>
         <div>
-          <h3>{{ speaker.company }} / {{ speaker.title }}</h3>
+          <h3><small>{{ speaker.company }} / {{ speaker.title }}</small></h3>
           <p>{{ speaker.bio }}</p>
         </div>
       </div>

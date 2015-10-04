@@ -8,24 +8,9 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, Config) {
+  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, Config) {
     $scope.sessions = $firebaseArray(Ref.child('sessions'));
-    $scope.showModal = false;
     $scope.tab = 1;
-    $scope.session = {
-      'id': null,
-      'title': null,
-      'room': null,
-      'time': null,
-      'speaker': null,
-      'track': null,
-      'description': null,
-      'faveCounter': 0
-    };
-
-    $scope.toggleModal = function() {
-      $scope.showModal = !$scope.showModal;
-    };
 
     $scope.setTab = function(newTab) {
       $scope.tab = newTab;
@@ -35,39 +20,52 @@ angular.module('devfestApp')
       return $scope.tab === tabNum;
     };
 
-    $scope.addSession = function() {
-      $scope.sessions.$add($scope.session).catch(alert);
-      $scope.toggleModal();
-      for (var prop in $scope.session) $scope.session[prop] = null; // reset
-      $timeout(function() {
-        $route.reload();
-      }, 1000);
+    $scope.openFormModal = function(session) {
+      $scope.session = session;
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'modalSessionForm.html',
+        controller: 'SessionModalCtrl',
+        resolve: {
+          session: function() {
+            return $scope.session;
+          }
+        }
+      });
+      modalInstance.result.then(function(results) {
+        if (results.action === 'add') {
+          $scope.add(results.session);
+        } else if (results.action === 'edit') {
+          $scope.edit(results.session);
+        }
+      });
+    };
+
+    $scope.add = function(session) {
+      $scope.sessions.$add(session);
+      $scope.refresh();
     };
 
     $scope.editSession = function(session) {
-      $scope.session = session;
-      $scope.session.id = session.$id;
-      $scope.toggleModal();
+      $scope.openFormModal(session);
     };
 
-    $scope.saveSession = function() {
-      if ($scope.session.id !== null) {
-        delete $scope.session.id;
-        $scope.sessions.$save($scope.session);
-        $scope.toggleModal();
-        for (var prop in $scope.session) $scope.session[prop] = null; // reset
-        $timeout(function() {
-          $route.reload();
-        }, 1000);
-      } else {
-        $scope.addSession();
-      }
+    $scope.edit = function(session) {
+      $scope.sessions.$save(session);
+      $scope.refresh();
     };
-
+  
     $scope.deleteSession = function(session) {
       if (confirm('Are you sure you want to delete this session?')) {
         $scope.sessions.$remove(session);
+        $scope.refresh();
       }
+    };
+  
+    $scope.refresh = function() {
+      $timeout(function() {
+        $route.reload();
+      }, 1000);
     };
     
     $scope.getTime = function(time) {
@@ -77,15 +75,42 @@ angular.module('devfestApp')
       return new Date(event.getFullYear(), event.getMonth(), event.getDate(), sHour, sMinutes, 0);
     };
 
-    function alert(msg) {
-      $scope.err = msg;
-      $timeout(function() {
-        $scope.err = null;
-      }, 5000);
-    }
-
     function parseDate(str) {
       var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
       return (d) ? new Date(d[1], d[2]-1, d[3]) : new Date();
     }
   });
+
+/**
+ * @ngdoc function
+ * @name devfestApp.controller:SpeakerModalCtrl
+ * @description
+ * # SpeakerModalCtrl
+ * Controller of the devfestApp
+ */
+angular.module('devfestApp')
+  .controller('SessionModalCtrl', function ($scope, $modalInstance, session) {
+    $scope.session = session;
+    $scope.err = null;
+    
+    $scope.saveSession = function(session) {
+      if (session && session.$id) {
+        $modalInstance.close({
+          'action': 'edit',
+          'session': session
+        });
+      } else if (session) {
+        $modalInstance.close({
+          'action': 'add',
+          'session': session
+        });
+      } else {
+        $scope.err = 'Please fill out the form or click Cancel to close.';
+      }
+    };
+    
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  });
+

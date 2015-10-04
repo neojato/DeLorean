@@ -87,29 +87,29 @@
         <p>{{ speaker.bio }}</p>
       </div>
     </div>
-    <ul class="list-unstyled list-inline list-social-icons">
-      <li ng-show="speaker.google" class="tooltip-social google-plus-link">
-        <a href="" ng-click="socialLink('google_plus', speaker.google)" data-toggle="tooltip" data-placement="top" title="Google+">
+    <ul class="speaker-social">
+      <li ng-show="speaker.google" class="google-plus-link">
+        <a href="" ng-click="socialLink('google_plus', speaker.google)" data-placement="top" title="Google+">
           <i class="fa fa-google-plus-square fa-2x"></i>
         </a>
       </li>
-      <li ng-show="speaker.facebook" class="tooltip-social facebook-link">
-        <a href="" ng-click="socialLink('facebook', speaker.facebook)" data-toggle="tooltip" data-placement="top" title="Facebook">
+      <li ng-show="speaker.facebook" class="facebook-link">
+        <a href="" ng-click="socialLink('facebook', speaker.facebook)" data-placement="top" title="Facebook">
           <i class="fa fa-facebook-square fa-2x"></i>
         </a>
       </li>
-      <li ng-show="speaker.twitter" class="tooltip-social twitter-link">
-        <a href="" ng-click="socialLink('twitter', speaker.twitter)" data-toggle="tooltip" data-placement="top" title="Twitter">
+      <li ng-show="speaker.twitter" class="twitter-link">
+        <a href="" ng-click="socialLink('twitter', speaker.twitter)" data-placement="top" title="Twitter">
           <i class="fa fa-twitter-square fa-2x"></i>
         </a>
       </li>
-      <li ng-show="speaker.github" class="tooltip-social github-link">
-        <a  href="" ng-click="socialLink('github', speaker.github)" data-toggle="tooltip" data-placement="top" title="GitHub">
+      <li ng-show="speaker.github" class="github-link">
+        <a  href="" ng-click="socialLink('github', speaker.github)" data-placement="top" title="GitHub">
           <i class="fa fa-github-square fa-2x"></i>
         </a>
       </li>
-      <li ng-show="speaker.website" class="tooltip-social website-link">
-        <a ng-href="{{ speaker.website }}" data-toggle="tooltip" data-placement="top" title="Website">
+      <li ng-show="speaker.website" class="website-link">
+        <a ng-href="{{ speaker.website }}" data-placement="top" title="Website">
           <i class="fa fa-chrome fa-2x"></i>
         </a>
       </li>

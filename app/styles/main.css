@@ -42,6 +42,14 @@
     color: #d14836;
 }
 
+.website-link a {
+  color: #777;
+}
+
+.website-link a:hover {
+    color: #FBC02D;
+}
+
 .social-links li{
   margin: 0 8px 16px 0;
   font-size: 18px;
@@ -845,8 +853,8 @@ ul.speaker-social {
 
 ul.speaker-social li {
 	display: inline-block;
-	margin: 8px;
-	border: 2px solid #fff;
+	margin: 2px;
+	border: 2px solid #777;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
@@ -855,8 +863,8 @@ ul.speaker-social li {
 ul.speaker-social li a {
 	display: block;
 	padding: 8px 9px;
-	color: #fff;
-	font-size: 20px;
+	color: #777;
+	font-size: 10px;
 	line-height: .8em;
 }
 

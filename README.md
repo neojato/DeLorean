@@ -82,10 +82,10 @@ Running `grunt test` will run the unit tests with karma. (NOTE: not all tests ha
 
 NOTE: The following deploy process has only been used with the GAE PHP SDK. Also still working on a better `grunt` process to automate this.
 
-1. Create a directory called `deploy` within your main project folder
+1. Create a directory called `deploy` within your main project folder. 
     This directory name has already been added to _.gitignore_ to keep repo size down
 
-2. Create a directory within the one you just created called `app`
+2. Create a directory within the one you just created called `app`. 
     Your path should now look like: `[your projects]/DeLorean/deploy/app`
 
 3. Run `grunt build` to build your site into the `[your path]/DeLorean/dist` directory

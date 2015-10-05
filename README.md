@@ -20,7 +20,8 @@ via the comand line.
     * Create an API key:
     
       * Select 'Browser' when asked the type
-      * Secure your API key with the URL where you plan to host the site
+      * ~~Secure your API key with the URL where you plan to host the site~~
+        * Currently this breaks ngMap, so leave off a referrer for the time being
     
     * If you plane to host on GAE, you will need the GAE SDK
     

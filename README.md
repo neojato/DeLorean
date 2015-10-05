@@ -23,7 +23,7 @@ via the comand line.
       * ~~Secure your API key with the URL where you plan to host the site~~
         * Currently this breaks ngMap, so leave off a referrer for the time being
     
-    * If you plane to host on GAE, you will need the GAE SDK
+    * If you plan to host on GAE, you will need the GAE SDK
     
       * The GAE SDK can be downloaded from [Google App Engine Downloads](https://developers.google.com/appengine/downloads) page.
       * This project uses the PHP SDK

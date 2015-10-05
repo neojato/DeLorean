@@ -9,6 +9,10 @@ handlers:
   static_files: app\favicon.ico
   upload: favicon\.ico
 
+- url: /robots\.txt
+  static_files: app\robots.txt
+  upload: robots\.txt
+
 - url: (.*)/
   static_files: app\1/index.html
   upload: app

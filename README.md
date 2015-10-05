@@ -1,4 +1,4 @@
-Project DeLorean - GDG DevFest 2015 App
+Project DeLorean - GDG DevFest 2015
 ===========================
 
 This project is a template for a dynamic web app for a chapter's GDG DevFest. 

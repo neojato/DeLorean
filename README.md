@@ -28,9 +28,19 @@ via the comand line.
       * The GAE SDK can be downloaded from [Google App Engine Downloads](https://developers.google.com/appengine/downloads) page.
       * This project uses the PHP SDK
 
-2. You need a [Firebase](https://www.firebase.com/) account
+2. Create a Firebase account, create a new app, and setup [Firebase auth](https://www.firebase.com/docs/web/guide/user-auth.html) for the logins
 
-    * After you create an account create a project
+    * Enable "Email & Password Authentication" under "Login & Auth"
+    * Set the following rules in "Security & Rules"
+    
+    ```
+    {
+      "rules": {
+        ".read": true,
+        ".write": "auth != null"
+      }
+    }
+    ```
 
 3. Install `yo`, `grunt`, `bower`, `generator-angularfire` and `generator-karma`
 

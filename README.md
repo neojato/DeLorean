@@ -79,7 +79,9 @@ via the comand line.
 
 7. Replace `app/images/devfest.png` with your chapter's DevFest logo.
 
-8. Update `app/app.yaml` with your Google Cloud Application ID (if planning to host on GAE)
+8. Replace `app/images/venue_1.png` with a photo of your venue. (TODO: add more venue photos & detail section)
+
+9. Update `app/app.yaml` with your Google Cloud Application ID (if planning to host on GAE)
 
 ## Build & development
 

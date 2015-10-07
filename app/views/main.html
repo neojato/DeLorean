@@ -39,7 +39,7 @@
 </section>
 <section id="location" style="padding-bottom: 15px;">
   <div map-lazy-load="{{ gMapLazy }}" map-lazy-load-params="{{ gMapsUrl }}">
-    <map center="{{ map.lat }}, {{ map.lng }}" style="height: 400px;" zoom="{{ map.zoom }}" scrollwheel="false" map-type-control="false">
+    <map center="{{ map.center.lat }}, {{ map.center.lng }}" style="height: 400px;" zoom="{{ map.zoom }}" scrollwheel="false" map-type-control="false">
       <marker id="eventSpace" position="{{ map.lat }}, {{ map.lng }}"></marker>
       <info-window id="eventDetail" visible-on-marker="eventSpace">
         <div>

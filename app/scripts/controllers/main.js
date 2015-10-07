@@ -34,7 +34,11 @@ angular.module('devfestApp')
         $scope.map = {
           lat: data.results[0].geometry.location.lat,
           lng: data.results[0].geometry.location.lng,
-          zoom: 16
+          zoom: 16,
+          center: {
+            lat: data.results[0].geometry.location.lat + 0.002,
+            lng: data.results[0].geometry.location.lng
+          }
         };
       }
     };

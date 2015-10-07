@@ -110,3 +110,31 @@ NOTE: The following deploy process has only been used with the GAE PHP SDK. Also
 7. Click the green run button to test the site using a local GAE
 
 8. When ready, click the blue deploy button to upload your site to GAE, and now you have a DevFest site!
+
+## Manage Data
+
+1. Create a login for your GDG chapter
+
+    * Click on the "GDG Login" link in the footer
+    * Click the "Register" button to create an account
+
+2. Turn off registration to protect your site
+
+    * Set `allowRegister` to false in `app/scripts/config/js`
+
+3. Add sponsors (must be logged in)
+
+    * From the home page, click the green "Add Sponsor" button
+    * After adding sponsors, you can edit/delete
+
+4. Add Speakers (must be logged in)
+
+    * From the speakers page, click the green "Add Speaker" button
+    * After adding speakers, you can edit/delete
+
+5. Add sessions (must be logged in)
+
+    * From the schedule page, click the green "Add Sesssion" button
+    * After adding sessions, you can edit/delete
+
+6. To logout, click "GDG Account" in the footer and then logout button

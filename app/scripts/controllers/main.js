@@ -8,16 +8,16 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('MainCtrl', function ($scope, $http, Config) {
+  .controller('MainCtrl', function ($scope, $http, $window, $location, Config) {
     $scope.site = Config;
     $scope.gMapLazy = 'https://maps.google.com/maps/api/js';
     $scope.gMapURL = 'https://maps.google.com/maps/api/js?client=' + Config.googleAPI;
 
     var sHour = Config.eventStart.substring(0, Config.eventStart.indexOf(':'));
-    var sMinutes = Config.eventStart.substring(Config.eventStart.indexOf(':')+1, Config.eventStart.indexOf(':')+3);
+    var sMinutes = Config.eventStart.substring(Config.eventStart.indexOf(':') + 1, Config.eventStart.indexOf(':') + 3);
 
     var eHour = Config.eventEnd.substring(0, Config.eventEnd.indexOf(':'));
-    var eMinutes = Config.eventEnd.substring(Config.eventEnd.indexOf(':')+1, Config.eventEnd.indexOf(':')+3);
+    var eMinutes = Config.eventEnd.substring(Config.eventEnd.indexOf(':') + 1, Config.eventEnd.indexOf(':') + 3);
 
     function parseDate(str) {
       var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
@@ -46,5 +46,13 @@ angular.module('devfestApp')
     if (Config.eventAddress.length > 0 ) {
       $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + Config.eventAddress.replace(/\s/g, '+').replace(/,/g, '') + '&key=' + Config.googleAPI)
         .then(onComplete, onError);
+    }
+    
+    $scope.$on('$viewContentLoaded', function(event) {
+      $window.ga('send', 'pageview', { page: $location.path() });
+    });
+    
+    $scope.gaClick = function(category, action, label, value) {
+      $window.ga('send', 'event', category, action, label, value);
     }
   });

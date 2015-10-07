@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, Config) {
+  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, $window, $location, Config) {
     $scope.site = Config;
     $scope.speakers = $firebaseArray(Ref.child('speakers'));
 
@@ -74,6 +74,10 @@ angular.module('devfestApp')
         $route.reload();
       }, 500);
     };
+    
+    $scope.$on('$viewContentLoaded', function(event) {
+      $window.ga('send', 'pageview', { page: $location.path() });
+    });
   });
 
 /**

@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('AboutCtrl', function ($scope, $http, $timeout, $location, $sce, Config) {
+  .controller('AboutCtrl', function ($scope, $http, $timeout, $location, $sce, $window, Config) {
     $scope.loading = true;
     
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
@@ -37,4 +37,8 @@ angular.module('devfestApp')
         $scope.desc = 'Sorry, we failed to retrieve the About text from the Google+ API.';
         $scope.loading = false;
       });
+    
+    $scope.$on('$viewContentLoaded', function(event) {
+      $window.ga('send', 'pageview', { page: $location.path() });
+    });
   });

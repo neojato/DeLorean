@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SponsorshipCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, Config) {
+  .controller('SponsorshipCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, $window, $location, Config) {
     $scope.site = Config;
     $scope.sponsors = $firebaseArray(Ref.child('sponsors'));
 
@@ -74,6 +74,14 @@ angular.module('devfestApp')
         $route.reload();
       }, 500);
     };
+    
+    $scope.$on('$viewContentLoaded', function(event) {
+      $window.ga('send', 'pageview', { page: $location.path() });
+    });
+    
+    $scope.gaClick = function(category, action, label, value) {
+      $window.ga('send', 'event', category, action, label, value);
+    }
   });
 
 /**

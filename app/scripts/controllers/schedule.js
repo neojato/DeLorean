@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, Config) {
+  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, $window, $location, Config) {
     $scope.sessions = $firebaseArray(Ref.child('sessions'));
     $scope.tab = 1;
 
@@ -79,6 +79,10 @@ angular.module('devfestApp')
       var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
       return (d) ? new Date(d[1], d[2]-1, d[3]) : new Date();
     }
+    
+    $scope.$on('$viewContentLoaded', function(event) {
+      $window.ga('send', 'pageview', { page: $location.path() });
+    });
   });
 
 /**

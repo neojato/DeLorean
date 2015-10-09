@@ -8,6 +8,10 @@ handlers:
 - url: /favicon\.ico
   static_files: app\favicon.ico
   upload: favicon\.ico
+  
+- url: /apple-touch-icon\.png
+  static_files: app\apple-touch-icon.png
+  upload: apple-touch-icon\.png
 
 - url: /robots\.txt
   static_files: app\robots.txt

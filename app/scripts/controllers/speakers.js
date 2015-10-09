@@ -66,7 +66,7 @@ angular.module('devfestApp')
       $scope.speakers.$remove(speaker);
     };
     
-    $scope.$on('$viewContentLoaded', function(event) {
+    $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });
     });
   });
@@ -169,7 +169,7 @@ angular.module('devfestApp')
         case 'github':
           link = 'https://github.com/' + profile;
           break;
-      };
+      }
       
       $window.open(link, '_blank');
       return false;

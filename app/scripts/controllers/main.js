@@ -52,11 +52,11 @@ angular.module('devfestApp')
         .then(onComplete, onError);
     }
     
-    $scope.$on('$viewContentLoaded', function(event) {
+    $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });
     });
     
     $scope.gaClick = function(category, action, label, value) {
       $window.ga('send', 'event', category, action, label, value);
-    }
+    };
   });

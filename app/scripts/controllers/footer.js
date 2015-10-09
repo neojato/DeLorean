@@ -30,7 +30,7 @@ angular.module('devfestApp')
         case 'meetup':
           link = 'http://www.meetup.com/' + Config.meetup;
           break;
-      };
+      }
       
       $window.open(link, '_blank');
       return false;

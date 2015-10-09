@@ -71,7 +71,7 @@ angular.module('devfestApp')
       return (d) ? new Date(d[1], d[2]-1, d[3]) : new Date();
     }
     
-    $scope.$on('$viewContentLoaded', function(event) {
+    $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });
     });
   });

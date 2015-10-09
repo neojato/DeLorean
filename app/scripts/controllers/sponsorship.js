@@ -50,7 +50,6 @@ angular.module('devfestApp')
 
     $scope.add = function(sponsor) {
       $scope.sponsors.$add(sponsor);
-      $scope.refresh();
     };
 
     $scope.editSponsor = function(sponsor) {
@@ -59,20 +58,12 @@ angular.module('devfestApp')
 
     $scope.edit = function(sponsor) {
       $scope.sponsors.$save(sponsor);
-      $scope.refresh();
     };
 
     $scope.deleteSponsor = function(sponsor) {
       if (confirm('Are you sure you want to delete this sponsor?')) {
         $scope.sponsors.$remove(sponsor);
-        $scope.refresh();
       }
-    };
-  
-    $scope.refresh = function() {
-      $timeout(function() {
-        $route.reload();
-      }, 500);
     };
     
     $scope.$on('$viewContentLoaded', function(event) {

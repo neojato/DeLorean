@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $route, $modal, $window, $location, Config) {
+  .controller('SpeakersCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, $window, $location, Config) {
     $scope.site = Config;
     $scope.speakers = $firebaseArray(Ref.child('speakers'));
 
@@ -56,23 +56,14 @@ angular.module('devfestApp')
 
     $scope.add = function(speaker) {
       $scope.speakers.$add(speaker);
-      $scope.refresh();
     };
 
     $scope.edit = function(speaker) {
       $scope.speakers.$save(speaker);
-      $scope.refresh();
     };
   
     $scope.delete = function(speaker) {
       $scope.speakers.$remove(speaker);
-      $scope.refresh();
-    };
-  
-    $scope.refresh = function() {
-      $timeout(function() {
-        $route.reload();
-      }, 500);
     };
     
     $scope.$on('$viewContentLoaded', function(event) {

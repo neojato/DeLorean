@@ -105,7 +105,7 @@ NOTE: The following deploy process has only been used with the GAE PHP SDK. Also
 
 4. Copy the files from the `dist` directory into the `app` directory you created in step 2
 
-5. Copy the `app.yaml` file from the root project path
+5. Copy the `app.yaml` file from the root project path to `[your projects]/DeLorean/deploy`
 
 6. Open the GAE launcher, right-click and `Add Existing...` to import this project
 

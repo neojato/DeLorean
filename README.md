@@ -73,15 +73,17 @@ via the comand line.
     * Add chapter specific details to meta tags in header
     * Add Google Analytics key on `line: 54`
 
-5. Replace `app/images/background.jpg` with a large photo of your choice. (Your city skyline is always a good option)
+5. Update the `FBURL` constant with your Firebase app name in `app/scripts/angularfire/config.js`
 
-6. Replace `app/images/gdg_group.png` with your chapter's logo.
+6. Replace `app/images/background.jpg` with a large photo of your choice. (Your city skyline is always a good option)
 
-7. Replace `app/images/devfest.png` with your chapter's DevFest logo.
+7. Replace `app/images/gdg_group.png` with your chapter's logo.
 
-8. Replace `app/images/venue_1.png` with a photo of your venue. (TODO: add more venue photos & detail section)
+8. Replace `app/images/devfest.png` with your chapter's DevFest logo.
 
-9. Update `app/app.yaml` with your Google Cloud Application ID (if planning to host on GAE)
+9. Replace `app/images/venue_1.png` with a photo of your venue. (TODO: add more venue photos & detail section)
+
+10. Update `app/app.yaml` with your Google Cloud Application ID (if planning to host on GAE)
 
 ## Build & development
 

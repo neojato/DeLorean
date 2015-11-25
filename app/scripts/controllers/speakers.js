@@ -63,12 +63,24 @@ angular.module('devfestApp')
     };
   
     $scope.delete = function(speaker) {
-      $scope.speakers.$remove(speaker);
+      $confirm({text: 'Are you sure you want to delete ' + speaker.name + '? (this cannot be undone)'})
+        .then(function() {
+          $scope.speakers.$remove(speaker);
+        });
     };
     
+    $scope.goto = function(link, c, a, l, v) {
+      $scope.gaClick(c, a, l, v);
+      $window.open(link);
+    };
+
     $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });
     });
+    
+    $scope.gaClick = function(category, action, label, value) {
+      $window.ga('send', 'event', category, action, label, value);
+    };
   });
 
 /**

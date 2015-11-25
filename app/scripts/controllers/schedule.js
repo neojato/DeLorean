@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('ScheduleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, $window, $location, Config) {
+  .controller('ScheduleCtrl', function($scope, Ref, $firebaseArray, $timeout, $uibModal, $window, $location, $confirm, Config) {
     $scope.sessions = $firebaseArray(Ref.child('sessions'));
     $scope.tab = 1;
 
@@ -54,22 +54,11 @@ angular.module('devfestApp')
     };
   
     $scope.deleteSession = function(session) {
-      if (confirm('Are you sure you want to delete this session?')) {
-        $scope.sessions.$remove(session);
-      }
+      $confirm({text: 'Are you sure you want to delete ' + session.title + '? (this cannot be undone)'})
+        .then(function() {
+          $scope.sessions.$remove(session);
+        });
     };
-    
-    $scope.getTime = function(time) {
-      var sHour = time.substring(0, time.indexOf(':'));
-      var sMinutes = time.substring(time.indexOf(':')+1, time.indexOf(':')+3);
-      var event = parseDate(Config.eventDate);
-      return new Date(event.getFullYear(), event.getMonth(), event.getDate(), sHour, sMinutes, 0);
-    };
-
-    function parseDate(str) {
-      var d = str.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-      return (d) ? new Date(d[1], d[2]-1, d[3]) : new Date();
-    }
     
     $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });

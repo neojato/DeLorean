@@ -20,5 +20,6 @@ angular.module('devfestApp', [
     'firebase.auth',
     'ngMap',
     'angular.filter',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-confirm'
   ]);

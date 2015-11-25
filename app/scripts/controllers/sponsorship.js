@@ -29,7 +29,7 @@ angular.module('devfestApp')
 
     $scope.openFormModal = function(sponsor) {
       $scope.sponsor = sponsor;
-      var modalInstance = $modal.open({
+      var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'modalSponsorForm.html',
         controller: 'SponsorModalCtrl',
@@ -89,7 +89,7 @@ angular.module('devfestApp')
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SponsorModalCtrl', function ($scope, $modalInstance, sponsor) {
+  .controller('SponsorModalCtrl', function($scope, $uibModalInstance, sponsor) {
     $scope.sponsor = sponsor;
     $scope.err = null;
     
@@ -98,7 +98,7 @@ angular.module('devfestApp')
         if ($scope.imageData) {
           sponsor.image = $scope.imageData;
         }
-        $modalInstance.close({
+        $uibModalInstance.close({
           'action': 'edit',
           'sponsor': sponsor
         });
@@ -106,7 +106,7 @@ angular.module('devfestApp')
         if ($scope.imageData) {
           sponsor.image = $scope.imageData;
         }
-        $modalInstance.close({
+        $uibModalInstance.close({
           'action': 'add',
           'sponsor': sponsor
         });
@@ -131,7 +131,7 @@ angular.module('devfestApp')
       document.getElementById('image').addEventListener('change', $scope.handleImageAdd, false);
     }, true);
     
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss('cancel');
     };
   });

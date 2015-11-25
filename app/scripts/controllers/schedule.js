@@ -22,7 +22,7 @@ angular.module('devfestApp')
 
     $scope.openFormModal = function(session) {
       $scope.session = session;
-      var modalInstance = $modal.open({
+      var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'modalSessionForm.html',
         controller: 'SessionModalCtrl',
@@ -73,18 +73,18 @@ angular.module('devfestApp')
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SessionModalCtrl', function ($scope, $modalInstance, session) {
+  .controller('SessionModalCtrl', function($scope, $uibModalInstance, session) {
     $scope.session = session;
     $scope.err = null;
     
     $scope.saveSession = function(session) {
       if (session && session.$id) {
-        $modalInstance.close({
+        $uibModalInstance.close({
           'action': 'edit',
           'session': session
         });
       } else if (session) {
-        $modalInstance.close({
+        $uibModalInstance.close({
           'action': 'add',
           'session': session
         });
@@ -93,8 +93,8 @@ angular.module('devfestApp')
       }
     };
     
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss('cancel');
     };
   });
 

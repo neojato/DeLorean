@@ -61,9 +61,15 @@ angular.module('devfestApp')
     };
 
     $scope.deleteSponsor = function(sponsor) {
-      if (confirm('Are you sure you want to delete this sponsor?')) {
-        $scope.sponsors.$remove(sponsor);
-      }
+      $confirm({text: 'Are you sure you want to delete ' + sponsor.company + '? (this cannot be undone)'})
+        .then(function() {
+          $scope.sponsors.$remove(sponsor);
+        });
+    };
+    
+    $scope.goto = function(link, c, a, l, v) {
+      $scope.gaClick(c, a, l, v);
+      $window.open(link);
     };
     
     $scope.$on('$viewContentLoaded', function(event) {

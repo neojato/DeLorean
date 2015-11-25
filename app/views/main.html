@@ -4,15 +4,15 @@
       <div class="vertical-center-table">
         <div class="vertical-center-content">
           <div class="hero-content row">
-            <div class="col-lg-10">
+            <div class="col-md-10">
               <img src="images/devfest.png" width="40%" alt="{{ site.eventName }}" />
               <div class="event-hero-info text-shadow-medium">
                 <small><span class="event-hero-icon fa fa-calendar"></span>{{ site.eventDate | date:'fullDate' }}</small><br />
                 <small><span class="event-hero-icon fa fa-university"></span>{{ site.eventLocation }}</small>
               </div>
               <div>
-                <a ng-href="{{ site.speakerURL }}" ng-click="gaClick('button', 'click', 'Become A Speaker')" target="_blank" class="cta cta-default all-caps">Become A Speaker</a>
-                <a ng-href="{{ site.ticketURL }}" ng-click="gaClick('button', 'click', 'Buy Ticket')" target="_blank" class="cta cta-default all-caps">Buy Ticket</a>
+                <a href ng-click="goto(site.speakerURL, 'button', 'click', 'Become A Speaker')" class="cta cta-default all-caps">Become A Speaker</a>
+                <a href ng-click="goto(site.ticketURL, 'button', 'click', 'Buy Ticket')" class="cta cta-default all-caps">Buy Ticket</a>
               </div>
             </div>
           </div>
@@ -24,15 +24,15 @@
 <section id="introduction" class="centered" style="padding-bottom: 15px;">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 centered">
+      <div class="col-md-8 col-md-offset-2 centered">
         <p class="section-title">About GDG DevFest</p>
         <h2 class="section-heading">1&nbsp;Day, {{ site.sessionTracks }}&nbsp;Tracks, 12+&nbsp;Speakers, A&nbsp;lot&nbsp;of&nbsp;Attendees</h2>
       </div>
       <div class="clearfix"></div>
-      <div class="col-lg-10 col-lg-offset-1">
+      <div class="col-md-10 col-md-offset-1">
         <p><strong>GDG DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together to exchange ideas, amazing things can happen!</p>
       </div>
-      <a ng-href="{{ site.ticketURL }}" ng-click="gaClick('button', 'click', 'Get Ticket')" target="_blank" class="cta cta-default all-caps">Get Your Ticket</a>
+      <a href ng-click="goto(site.ticketURL, 'button', 'click', 'Get Ticket')" class="cta cta-default all-caps">Get Your Ticket</a>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -80,15 +80,15 @@
           <h4>{{ key }} Sponsor</h4>
           <ul class="list-inline">
             <li ng-repeat="sponsor in value">
-              <a ng-href="{{ sponsor.link }}" ng-click="gaClick('sponsor', 'click', '{{ sponsor.company }}')" target="_blank"><img ng-src="{{ sponsor.image }}" title="{{ sponsor.description }}" alt="{{ sponsor.company }}" /></a>
+              <a href ng-click="goto(sponsor.link, 'sponsor', 'click', '{{ sponsor.company }}')"><img ng-src="{{ sponsor.image }}" title="{{ sponsor.description }}" alt="{{ sponsor.company }}" /></a>
               <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="openFormModal(sponsor)">Edit</a>
               <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSponsor(sponsor)">Delete</a>
             </li>
           </ul>
         </span>
         <div>
-          <a ng-href="#!/sponsorship" ng-click="gaClick('button', 'click', 'Sponsor: Learn More')" class="cta cta-default all-caps">Learn More</a>
-          <a ng-href="{{ site.sponsorURL }}" ng-click="gaClick('button', 'click', 'Become A Sponsor 1')" target="_blank" class="cta cta-default all-caps">Become A Sponsor</a>
+          <a ng-href="#!/sponsorship" class="cta cta-default all-caps">Learn More</a>
+          <a href ng-click="goto(site.sponsorURL, 'button', 'click', 'Become A Sponsor 1')" class="cta cta-default all-caps">Become A Sponsor</a>
         </div>
       </div>
     </div>

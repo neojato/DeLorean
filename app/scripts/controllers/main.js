@@ -52,6 +52,11 @@ angular.module('devfestApp')
         .then(onComplete, onError);
     }
     
+    $scope.goto = function(link, c, a, l, v) {
+      $scope.gaClick(c, a, l, v);
+      $window.open(link);
+    };
+
     $scope.$on('$viewContentLoaded', function() {
       $window.ga('send', 'pageview', { page: $location.path() });
     });

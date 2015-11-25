@@ -8,10 +8,11 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('HeaderCtrl', function ($scope, $location, Config) {
+  .controller('HeaderCtrl', function($scope, Auth, $location, Config) {
     $scope.site = Config;
+    $scope.logout = function() { Auth.$unauth(); };
   
-    $scope.isActive = function (viewLocation) {
+    $scope.isActive = function(viewLocation) {
       return viewLocation === $location.path();
     };
   });

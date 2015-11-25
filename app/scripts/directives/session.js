@@ -9,7 +9,7 @@
 angular.module('devfestApp')
   .directive('sessionTabpanel', function(Config) {
     return {
-      templateUrl: '/scripts/directives/session.html',
+      templateUrl: '/views/session.html',
       restrict: 'E',
       replace: true,
       scope: {

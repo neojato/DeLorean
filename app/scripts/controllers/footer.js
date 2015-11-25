@@ -8,8 +8,10 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('FooterCtrl', function ($scope, $window, $timeout, Config) {
+  .controller('FooterCtrl', function($scope, $window, $timeout, Config) {
     $scope.site = Config;
+    var date = new Date();
+    $scope.copyright = date.getFullYear() == '2015' ? '2015' : '2015-' + date.getFullYear();
     
     $scope.socialLink = function(network) {
       var link = '';

@@ -1,4 +1,4 @@
-Project DeLorean - GDG DevFest 2015
+Project DeLorean - GDG DevFest Website
 ===========================
 
 This project is a template for a dynamic web app for a chapter's GDG DevFest. 
@@ -119,7 +119,7 @@ NOTE: The following deploy process has only been used with the GAE PHP SDK. Also
 
 1. Create a login for your GDG chapter
 
-    * Click on the "GDG Login" link in the footer
+    * Click on "Log In" in the header
     * Click the "Register" button to create an account
 
 2. Turn off registration to protect your site
@@ -141,4 +141,4 @@ NOTE: The following deploy process has only been used with the GAE PHP SDK. Also
     * From the schedule page, click the green "Add Sesssion" button
     * After adding sessions, you can edit/delete
 
-6. To logout, click "GDG Account" in the footer and then logout button
+6. To log out, click "Log Out" in the header

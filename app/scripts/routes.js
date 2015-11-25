@@ -83,10 +83,10 @@ angular.module('devfestApp')
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-      .whenAuthenticated('/account', {
-        templateUrl: 'views/account.html',
-        controller: 'AccountCtrl'
-      })
+//      .whenAuthenticated('/account', {
+//        templateUrl: 'views/account.html',
+//        controller: 'AccountCtrl'
+//      })
       .otherwise({redirectTo: '/'});
   }])
 

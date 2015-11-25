@@ -31,112 +31,13 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" ng-show="isTab(1)" ng-repeat="session in sessions | filter:{track: '1'}:true | orderBy:'time'">
-            <div class="session-wrapper">
-              <div class="row">
-                <div class="col-lg-4 col-md-4 pull-left no-padding">
-                  <div class="session-meta">
-                    <div class="session-meta-thumbnail">
-                      <div class="color-overlay"></div>
-                      <img src="images/venue_1.jpg" alt="Venue" />
-                    </div>
-                    <div class="session-meta-info">
-                      <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
-                      </div>
-                      <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{ session.room }}
-                      </div>
-                      <div style="padding-top: 25px;">
-                        <!-- Edit/Delete a session (Auth required) -->
-                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
-                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-8 no-padding">
-                  <div class="session-description">
-                    <h4 class="session-title">{{ session.title }}</h4>
-                    <p>{{ session.description }}</p>
-                    <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{ session.speaker }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <session-tabpanel model="session" edit-session="editSession(session)" delete-session="deleteSession(session)"></session-tabpanel>
           </div>
           <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(2)" ng-repeat="session in sessions | filter:{track: '2'}:true">
-            <div class="session-wrapper">
-              <div class="row">
-                <div class="col-lg-4 col-md-4 pull-left no-padding">
-                  <div class="session-meta">
-                    <div class="session-meta-thumbnail">
-                      <div class="color-overlay"></div>
-                      <img src="images/venue_1.jpg" alt="Venue" />
-                    </div>
-                    <div class="session-meta-info">
-                      <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
-                      </div>
-                      <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{ session.room }}
-                      </div>
-                      <div style="padding-top: 25px;">
-                        <!-- Edit/Delete a session (Auth required) -->
-                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
-                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-8 no-padding">
-                  <div class="session-description">
-                    <h4 class="session-title">{{ session.title }}</h4>
-                    <p>{{ session.description }}</p>
-                    <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{ session.speaker }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <session-tabpanel model="session" edit-session="editSession(session)" delete-session="deleteSession(session)"></session-tabpanel>
           </div>
           <div role="tabpanel" class="tab-pane fade in active" ng-show="isTab(3)" ng-repeat="session in sessions | filter:{track: '3'}:true">
-            <div class="session-wrapper">
-              <div class="row">
-                <div class="col-lg-4 col-md-4 pull-left no-padding">
-                  <div class="session-meta">
-                    <div class="session-meta-thumbnail">
-                      <div class="color-overlay"></div>
-                      <img src="images/venue_1.jpg" alt="Venue" />
-                    </div>
-                    <div class="session-meta-info">
-                      <div class="session-info-time">
-                        <span class="fa fa-clock-o"></span> {{ getTime(session.time) | date:'shortTime' }}
-                      </div>
-                      <div class="session-info-place">
-                        <span class="fa fa-university"></span> {{ session.room }}
-                      </div>
-                      <div style="padding-top: 25px;">
-                        <!-- Edit/Delete a session (Auth required) -->
-                        <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
-                        <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-8 no-padding">
-                  <div class="session-description">
-                    <h4 class="session-title">{{ session.title }}</h4>
-                    <p>{{ session.description }}</p>
-                    <div class="session-speaker">
-                      <span class="fa fa-user-secret"></span> {{ session.speaker  }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <session-tabpanel model="session" edit-session="editSession(session)" delete-session="deleteSession(session)"></session-tabpanel>
           </div>
         </div>
       </div>

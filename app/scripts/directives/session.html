@@ -1,0 +1,34 @@
+<div class="session-wrapper">
+  <div class="row">
+    <div class="col-md-4 no-padding">
+      <div class="session-meta">
+        <div class="session-meta-thumbnail">
+          <div class="color-overlay"></div>
+          <img src="images/venue_1.jpg" alt="Venue" />
+        </div>
+        <div class="session-meta-info">
+          <div class="session-info-time">
+            {{ getTime(session.time) | date:'shortTime' }}
+          </div>
+          <div class="session-info-place">
+            {{ session.room }}
+          </div>
+          <div style="padding-top: 25px;">
+            <!-- Edit/Delete a session (Auth required) -->
+            <a ng-show-auth="" class="btn btn-sm btn-primary" ng-click="editSession(session)">Edit</a>
+            <a ng-show-auth="" class="btn btn-sm btn-danger" ng-click="deleteSession(session)">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 no-padding">
+      <div class="session-description">
+        <h4 class="session-title">{{ session.title }}</h4>
+        <p>{{ session.description }}</p>
+        <div ng-show="session.speaker" class="session-speaker">
+          <span class="fa fa-user"></span> {{ session.speaker }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

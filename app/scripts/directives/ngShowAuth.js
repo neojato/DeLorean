@@ -7,7 +7,7 @@
  * to be initialized so there is no initial flashing of incorrect state.
  */
 angular.module('devfestApp')
-  .directive('ngShowAuth', ['Auth', '$timeout', function (Auth, $timeout) {
+  .directive('ngShowAuth', ['Auth', '$timeout', function(Auth, $timeout) {
     'use strict';
 
     return {
@@ -18,7 +18,7 @@ angular.module('devfestApp')
         function update() {
           // sometimes if ngCloak exists on same element, they argue, so make sure that
           // this one always runs last for reliability
-          $timeout(function () {
+          $timeout(function() {
             el.toggleClass('ng-cloak', !Auth.$getAuth());
           }, 0);
         }

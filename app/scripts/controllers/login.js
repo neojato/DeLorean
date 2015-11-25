@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('devfestApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Config) {
+  .controller('LoginCtrl', function($scope, Auth, $location, $q, Ref, $timeout, Config) {
     $scope.allowRegister = Config.allowRegister;
     
     $scope.passwordLogin = function(email, pass) {
@@ -27,7 +27,7 @@ angular.module('devfestApp')
       }
       else {
         Auth.$createUser({email: email, password: pass})
-          .then(function () {
+          .then(function() {
             // authenticate so we have permission to write to Firebase
             return Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true});
           })
@@ -55,15 +55,14 @@ angular.module('devfestApp')
       return ucfirst(email.substr(0, email.indexOf('@'))||'');
     }
 
-    function ucfirst (str) {
-      // inspired by: http://kevin.vanzonneveld.net
+    function ucfirst(str) {
       str += '';
       var f = str.charAt(0).toUpperCase();
       return f + str.substr(1);
     }
   
     function redirect() {
-      $location.path('/account');
+      $location.path('/');
     }
 
     function showError(err) {

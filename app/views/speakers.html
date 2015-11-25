@@ -13,7 +13,7 @@
       </div>
       <div class="clearfix"></div>
       <ul ng-cloak ng-if="speakers.length > 0" id="speaker_grid">
-        <li class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 speaker-item" ng-repeat="speaker in speakers">
+        <li class="col-md-4 col-sm-offset-0 col-xs-8 col-xs-offset-2 speaker-item" ng-repeat="speaker in speakers">
           <div class="speaker-item-content" style="cursor: pointer;" ng-click="openInfoModal(speaker)">
             <img ng-src="{{ speaker.image }}" alt="{{ speaker.name }}"/>
             <div class="speaker-info centered">

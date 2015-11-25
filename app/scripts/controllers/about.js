@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('AboutCtrl', function ($scope, $http, $timeout, $location, $sce, $window, Config) {
+  .controller('AboutCtrl', function($scope, $http, $timeout, $location, $sce, $window, Config) {
     $scope.loading = true;
     
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +

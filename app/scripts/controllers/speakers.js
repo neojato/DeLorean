@@ -91,7 +91,7 @@ angular.module('devfestApp')
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SpeakerModalCtrl', function ($scope, $modalInstance, speaker) {
+  .controller('SpeakerModalCtrl', function($scope, $uibModalInstance, speaker) {
     $scope.speaker = speaker;
     $scope.err = null;
     

@@ -9,7 +9,7 @@
  * Filter in the devfestApp.
  */
 angular.module('devfestApp')
-  .filter('levelSorter', function () {
+  .filter('levelSorter', function() {
     function customOrder(item) {
       switch(item) {
         case 'Gold':
@@ -26,7 +26,7 @@ angular.module('devfestApp')
       angular.forEach(items, function(item) {
         filtered.push(item);
       });
-      filtered.sort(function (a, b) {
+      filtered.sort(function(a, b) {
         return (customOrder(a.level) > customOrder(b.level) ? 1 : -1);
       });
       return filtered;

@@ -8,7 +8,7 @@
  * Controller of the devfestApp
  */
 angular.module('devfestApp')
-  .controller('SponsorshipCtrl', function ($scope, Ref, $firebaseArray, $timeout, $modal, $window, $location, Config) {
+  .controller('SponsorshipCtrl', function($scope, Ref, $firebaseArray, $timeout, $uibModal, $window, $location, $confirm, Config) {
     $scope.site = Config;
     $scope.sponsors = $firebaseArray(Ref.child('sponsors'));
 

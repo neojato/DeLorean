@@ -4,6 +4,9 @@ Project DeLorean - GDG DevFest Website
 This project is a template for a dynamic web app for a chapter's GDG DevFest. 
 It pulls data from the [Google+ API](https://developers.google.com/+/web/api/rest/), utilizes [Firebase](https://www.firebase.com/), and is written in [AngularJS](https://angularjs.org/).
 
+## [deprecated]
+If you are looking for the new & improved DevFest/conference web app template version, go here: [DeLorean Project](https://github.com/neojato/DeLorean-v2)
+
 ## Prerequisites
 
 Luckily the way this project is written, there is no need for any Angular programming skills to utilize this for your GDG chapter. However, you will need to be comfortable with running commands 
